@@ -3,7 +3,7 @@ import { players } from '../data/players';
 
 const TopScorers = () => {
     // Sort players by goals descending
-    const sortedPlayers = [...players].sort((a, b) => b.goals - a.goals).slice(0, 15);
+    const sortedPlayers = [...players].sort((a, b) => (b.goals ?? 0) - (a.goals ?? 0)).slice(0, 15);
 
     const getMedalIcon = (position: number) => {
         if (position === 1) return '🥇';
