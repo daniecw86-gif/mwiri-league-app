@@ -1,18 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { teams } from '../data/teams';
-
-interface MatchResult {
-    id: number;
-    homeTeam: string;
-    awayTeam: string;
-    homeScore?: number;
-    awayScore?: number;
-    venue: string;
-}
+import { MatchData } from '../types';
 
 interface ResultRowProps {
-    match: MatchResult;
+    match: MatchData;
 }
 
 const ResultRow: React.FC<ResultRowProps> = ({ match }) => {
