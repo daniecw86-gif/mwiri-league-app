@@ -19,10 +19,14 @@ const PlayerProfile = async ({ params }: { params: Promise<{ id: string }> }) =>
     }
 
     const team = teams.find(t => t.id === player.teamId);
+    const playerWithTeamName = {
+        ...player,
+        teamName: player.teamName || team?.name || 'Unknown Team'
+    };
 
     return (
         <div className="min-h-screen bg-gray-50 pb-12">
-            <PlayerHero player={player} primaryColor={team?.primaryColor} />
+            <PlayerHero player={playerWithTeamName} primaryColor={team?.primaryColor} />
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
                 {/* Stats Grid */}
@@ -54,10 +58,10 @@ const PlayerProfile = async ({ params }: { params: Promise<{ id: string }> }) =>
                                 Player Bio
                             </h2>
                             <p className="text-gray-600 leading-relaxed text-lg">
-                                {player.name} is a key player for {player.teamName}. Known for their {player.position === 'Goalkeeper' ? 'reflexes and command of the box' : player.position === 'Defender' ? 'tackling and aerial ability' : player.position === 'Midfielder' ? 'vision and passing range' : 'finishing and movement'}, they have been instrumental in the team's performances this season.
+                                {player.name} is a key player for {player.teamName || team?.name || 'their team'}. Known for their {player.position === 'Goalkeeper' ? 'reflexes and command of the box' : player.position === 'Defender' ? 'tackling and aerial ability' : player.position === 'Midfielder' ? 'vision and passing range' : 'finishing and movement'}, they have been instrumental in the team's performances this season.
                             </p>
                             <p className="text-gray-600 leading-relaxed text-lg mt-4">
-                                With {player.appearances} appearances and {player.goals} goals, they continue to be a fan favorite at {team?.stadium || 'the club'}.
+                                With {player.appearances ?? 0} appearances and {player.goals ?? 0} goals, they continue to be a fan favorite at {team?.stadium || 'the club'}.
                             </p>
                         </div>
                     </div>
@@ -86,7 +90,7 @@ const PlayerProfile = async ({ params }: { params: Promise<{ id: string }> }) =>
                                 <div className="flex justify-between">
                                     <span className="text-gray-500">Team</span>
                                     <Link href={`/clubs/${player.teamId}`} className="font-bold text-mwiri-blue hover:underline">
-                                        {player.teamName}
+                                        {player.teamName || team?.name || 'Unknown Team'}
                                     </Link>
                                 </div>
                             </div>
