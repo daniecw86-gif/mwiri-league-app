@@ -8,11 +8,11 @@ export interface MatchEvent {
 }
 
 export interface Player {
-    id?: number;
+    id: number;
     number: number;
     name: string;
     position: string;
-    teamId?: number;
+    teamId: number;
     teamName?: string;
     goals?: number;
     assists?: number;
