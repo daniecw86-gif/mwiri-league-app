@@ -99,10 +99,11 @@ export interface MatchData {
     id: number;
     homeTeam: string;
     awayTeam: string;
-    time?: string;
+    time: string;
     venue: string;
     homeScore?: number;
     awayScore?: number;
+    date?: string;
 }
 
 export interface FixtureGroup {
