@@ -1,15 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-
-interface Player {
-    id: number;
-    name: string;
-    position: string;
-    number: number;
-    goals: number;
-    assists: number;
-    appearances: number;
-}
+import { Player } from '../types';
 
 interface SquadTableProps {
     players: Player[];
@@ -47,9 +38,9 @@ const SquadTable: React.FC<SquadTableProps> = ({ players }) => {
                                         {player.name}
                                     </Link>
                                 </td>
-                                <td className="px-6 py-4 text-center text-gray-600">{player.appearances}</td>
-                                <td className="px-6 py-4 text-center text-gray-600">{player.goals}</td>
-                                <td className="px-6 py-4 text-center text-gray-600">{player.assists}</td>
+                                <td className="px-6 py-4 text-center text-gray-600">{player.appearances ?? 0}</td>
+                                <td className="px-6 py-4 text-center text-gray-600">{player.goals ?? 0}</td>
+                                <td className="px-6 py-4 text-center text-gray-600">{player.assists ?? 0}</td>
                             </tr>
                         ))}
                     </tbody>
