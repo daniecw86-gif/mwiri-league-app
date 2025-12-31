@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mwiri League - Official Application
 
 The official web application for the Mwiri League, featuring live match results, team statistics, fixtures, and more.
@@ -154,3 +155,7 @@ For questions or support, contact the league administration.
 ---
 
 **Mwiri League** - *Excellence on the Hilltop* 🏔️⚽
+=======
+# mwiri-league-app
+The Mwiri League Website
+>>>>>>> 7a36af93f13cbe5a8cd5611286a1cecd066ca3ae
