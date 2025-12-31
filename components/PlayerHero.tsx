@@ -9,7 +9,7 @@ interface PlayerHeroProps {
         teamId: number;
         number: number;
         position: string;
-        image?: string;
+        image?: string | null;
     };
     primaryColor?: string;
 }
