@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Premium Brand Colors */
+  --color-mwiri-blue: #005696;
+  --color-mwiri-blue-dark: #003366;
+  --color-mwiri-blue-deep: #001f3f;
+  --color-mwiri-yellow: #FFD100;
+  --color-mwiri-gold: #C5A028;
+  --color-mwiri-gold-light: #EBC65D;
+
+  /* EPL-inspired Neutrals */
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-850: #1e293b;
+  --color-slate-900: #0F172A;
+  --color-slate-950: #020617;
+}
+
+@layer base {
+  :root {
+    --background: #f1f5f9;
+    --foreground: #0f172a;
+    --dot-color: #cbd5e1;
+  }
+
+  .dark {
+    --background: #020617;
+    --foreground: #f8fafc;
+    --dot-color: #1e293b;
+  }
+
+  body {
+    background-color: var(--background);
+    background-image:
+      radial-gradient(circle at 100% 0%, rgba(0, 86, 150, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 0% 100%, rgba(255, 209, 0, 0.08) 0%, transparent 25%),
+      radial-gradient(var(--dot-color) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 24px 24px;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -6px rgba(0, 86, 150, 0.15);
+  }
+
+  /* Premium Shadows */
+  .shadow-premium {
+    box-shadow: 0 4px 6px -1px rgba(0, 86, 150, 0.08),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-premium-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 86, 150, 0.12),
+      0 4px 6px -2px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-premium-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 86, 150, 0.15),
+      0 10px 10px -5px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Smooth Animations */
+  .animate-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-smooth-slow {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Premium Gradients */
+  .gradient-blue {
+    background: linear-gradient(135deg, #005696 0%, #003366 100%);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #FFD100 0%, #C5A028 100%);
+  }
+
+  .gradient-premium {
+    background: linear-gradient(135deg, #005696 0%, #1e88e5 50%, #FFD100 100%);
+  }
+
+  /* Position Badges */
+  .badge-champion {
+    background: linear-gradient(135deg, #FFD100 0%, #C5A028 100%);
+    color: #003366;
+  }
+
+  .badge-top4 {
+    background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+    color: white;
+  }
+
+  .badge-relegation {
+    background: linear-gradient(135deg, #EF5350 0%, #C62828 100%);
+    color: white;
+  }
+
+  /* Hover Lift Effect */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px -6px rgba(0, 86, 150, 0.2);
+  }
+
+  /* Row Hover */
+  .row-hover {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .row-hover:hover {
+    background-color: rgba(0, 86, 150, 0.04);
+    transform: translateX(4px);
+  }
+
+  /* Dark Mode Row Hover */
+  .dark .row-hover:hover {
+    background-color: rgba(255, 209, 0, 0.05);
+  }
+}

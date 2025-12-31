@@ -1,0 +1,156 @@
+import { FixtureGroup } from '../types';
+
+export const results: FixtureGroup[] = [
+    {
+        id: 1,
+        date: "Match Day 1 - Fixture 1",
+        matches: [
+            // Group A (User's Group A)
+            {
+                id: 101,
+                homeTeam: "Makaya'08",
+                awayTeam: "Shadow'09",
+                homeScore: 4,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 102,
+                homeTeam: "Vuyos United'00",
+                awayTeam: "Bluedollar'04",
+                homeScore: 0,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 103,
+                homeTeam: "Solida'95",
+                awayTeam: "Kombora'03",
+                homeScore: 0,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 104,
+                homeTeam: "Top Layer'97",
+                awayTeam: "Divers'13",
+                homeScore: 0,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            // Group B (User's Group B)
+            {
+                id: 105,
+                homeTeam: "Muniga'02",
+                awayTeam: "Bootlickers'93",
+                homeScore: 0,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 106,
+                homeTeam: "Wampa Fc",
+                awayTeam: "Winter'94",
+                homeScore: 0,
+                awayScore: 2,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 107,
+                homeTeam: "Lukambwe'05",
+                awayTeam: "Buliti'01",
+                homeScore: 2,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+        ],
+    },
+    {
+        id: 2,
+        date: "Match Day 1 - Fixture 2",
+        matches: [
+            // Group A
+            {
+                id: 201,
+                homeTeam: "Vuyos United'00",
+                awayTeam: "Makaya'08",
+                homeScore: 0,
+                awayScore: 2,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 202,
+                homeTeam: "Top Layer'97",
+                awayTeam: "Bluedollar'04",
+                homeScore: 2,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            // Group B
+            {
+                id: 203,
+                homeTeam: "Destroyers' FC10",
+                awayTeam: "Muniga'02",
+                homeScore: 0,
+                awayScore: 1,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 204,
+                homeTeam: "Winter'94",
+                awayTeam: "Bootlickers'93",
+                homeScore: 0,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 205,
+                homeTeam: "Buliti'01",
+                awayTeam: "Wampa Fc",
+                homeScore: 0,
+                awayScore: 1,
+                venue: "IUEA Sports Ground",
+            },
+        ],
+    },
+    {
+        id: 3,
+        date: "Match Day 1 - Fixture 3",
+        matches: [
+            // Group A
+            {
+                id: 301,
+                homeTeam: "Makaya'08",
+                awayTeam: "Kombora'03",
+                homeScore: 1,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 302,
+                homeTeam: "Solida'95",
+                awayTeam: "Divers'13",
+                homeScore: 0,
+                awayScore: 1,
+                venue: "IUEA Sports Ground",
+            },
+            // Group B
+            {
+                id: 303,
+                homeTeam: "Muniga'02",
+                awayTeam: "Winter'94",
+                homeScore: 0,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 304,
+                homeTeam: "Suici'06",
+                awayTeam: "Destroyers' FC10",
+                homeScore: 2,
+                awayScore: 0,
+                venue: "IUEA Sports Ground",
+            },
+        ],
+    },
+];
