@@ -6,8 +6,8 @@ interface MatchResult {
     id: number;
     homeTeam: string;
     awayTeam: string;
-    homeScore: number;
-    awayScore: number;
+    homeScore?: number;
+    awayScore?: number;
     venue: string;
 }
 
@@ -20,9 +20,9 @@ const ResultRow: React.FC<ResultRowProps> = ({ match }) => {
     const awayTeamData = teams.find((t: any) => t.name === match.awayTeam);
 
     // Determine winner
-    const homeWon = match.homeScore > match.awayScore;
-    const awayWon = match.awayScore > match.homeScore;
-    const draw = match.homeScore === match.awayScore;
+    const homeWon = (match.homeScore ?? 0) > (match.awayScore ?? 0);
+    const awayWon = (match.awayScore ?? 0) > (match.homeScore ?? 0);
+    const draw = (match.homeScore ?? 0) === (match.awayScore ?? 0);
 
     return (
         <div className="bg-white rounded-2xl shadow-premium border border-gray-100 overflow-hidden hover-lift mb-4">
@@ -64,9 +64,9 @@ const ResultRow: React.FC<ResultRowProps> = ({ match }) => {
                     <div className="flex flex-col items-center gap-2 min-w-[140px]">
                         <div className="bg-gradient-to-br from-mwiri-blue to-mwiri-blue-dark rounded-xl px-6 py-4 shadow-premium">
                             <p className="text-white font-black text-2xl text-center flex items-center gap-3">
-                                <span className={homeWon ? 'text-mwiri-yellow' : ''}>{match.homeScore}</span>
+                                <span className={homeWon ? 'text-mwiri-yellow' : ''}>{match.homeScore ?? 0}</span>
                                 <span className="text-white/50 text-base">-</span>
-                                <span className={awayWon ? 'text-mwiri-yellow' : ''}>{match.awayScore}</span>
+                                <span className={awayWon ? 'text-mwiri-yellow' : ''}>{match.awayScore ?? 0}</span>
                             </p>
                         </div>
                         <div className="flex items-center gap-1.5 text-xs text-gray-500">
