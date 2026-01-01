@@ -29,7 +29,7 @@ export default function GalleryPage() {
             {/* Hero Section */}
             <div className="relative bg-gradient-to-br from-mwiri-blue via-mwiri-blue-dark to-mwiri-blue-deep text-white overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
-                    <div className="absolute inset-0 bg-[url('/gallery/season-2024/IMG_20251013_075436_016.jpg')] bg-cover bg-center"></div>
+                    <div className="absolute inset-0 bg-[url('/gallery/season-2024/IMG_5109.jpg')] bg-cover bg-center"></div>
                     <div className="absolute inset-0 bg-gradient-to-b from-mwiri-blue-deep/80 to-mwiri-blue-deep"></div>
                 </div>
 
