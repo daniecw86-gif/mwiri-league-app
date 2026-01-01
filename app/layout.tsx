@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { ErrorBoundary } from "../components/ErrorBoundary";
+import InstallBanner from "../components/InstallBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -69,6 +70,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Footer />
+            <InstallBanner />
           </ErrorBoundary>
         </ThemeProvider>
       </body>
