@@ -117,19 +117,19 @@ const ClubProfile = async ({ params }: { params: Promise<{ id: string }> }) => {
                 {/* Quick Stats Ribbon */}
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mb-8">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div className="bg-white rounded-xl shadow-premium-xl p-4 text-center">
-                            <div className="text-3xl font-black text-mwiri-blue">#{position}</div>
+                        <div className="bg-white rounded-xl shadow-premium-xl p-4 text-center border-t-4" style={{ borderTopColor: team.primaryColor || '#005696' }}>
+                            <div className="text-3xl font-black" style={{ color: team.primaryColor || '#005696' }}>#{position}</div>
                             <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Position</div>
                         </div>
-                        <div className="bg-white rounded-xl shadow-premium-xl p-4 text-center">
+                        <div className="bg-white rounded-xl shadow-premium-xl p-4 text-center border-t-4" style={{ borderTopColor: team.primaryColor || '#005696' }}>
                             <div className="text-3xl font-black text-green-600">{team.points}</div>
                             <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Points</div>
                         </div>
-                        <div className="bg-white rounded-xl shadow-premium-xl p-4 text-center">
+                        <div className="bg-white rounded-xl shadow-premium-xl p-4 text-center border-t-4" style={{ borderTopColor: team.primaryColor || '#005696' }}>
                             <div className="text-3xl font-black text-orange-600">{team.gf}</div>
                             <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Goals</div>
                         </div>
-                        <div className="bg-white rounded-xl shadow-premium-xl p-4 text-center">
+                        <div className="bg-white rounded-xl shadow-premium-xl p-4 text-center border-t-4" style={{ borderTopColor: team.primaryColor || '#005696' }}>
                             <div className="text-3xl font-black text-purple-600">{winRate}%</div>
                             <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Win Rate</div>
                         </div>
@@ -222,7 +222,7 @@ const ClubProfile = async ({ params }: { params: Promise<{ id: string }> }) => {
 
                         {/* Club Details */}
                         <div className="bg-white rounded-2xl shadow-premium-lg border border-gray-100 overflow-hidden">
-                            <div className="gradient-gold px-6 py-4">
+                            <div className="px-6 py-4" style={{ background: `linear-gradient(135deg, ${team.primaryColor || '#C5A028'} 0%, ${team.primaryColor || '#C5A028'}dd 100%)` }}>
                                 <h3 className="font-black text-white flex items-center gap-2">
                                     <span>ℹ️</span>
                                     Club Details
