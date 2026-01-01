@@ -4,8 +4,8 @@ import { players } from '../data/players';
 const YellowCards = () => {
     // Sort players by yellow cards descending
     const sortedPlayers = [...players]
-        .filter(p => p.yellowCards > 0)
-        .sort((a, b) => b.yellowCards - a.yellowCards)
+        .filter(p => (p.yellowCards ?? 0) > 0)
+        .sort((a, b) => (b.yellowCards ?? 0) - (a.yellowCards ?? 0))
         .slice(0, 10);
 
     return (
@@ -44,7 +44,7 @@ const YellowCards = () => {
                                 {/* Yellow Cards Badge */}
                                 <div className="flex-shrink-0">
                                     <span className="inline-flex items-center justify-center min-w-[2.5rem] h-10 px-3 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-600 text-white font-black text-lg shadow-sm">
-                                        {player.yellowCards}
+                                        {player.yellowCards ?? 0}
                                     </span>
                                 </div>
                             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Match, Player } from '../../types';
+import { Match, LineupPlayer } from '../../types';
 
 interface LineupsProps {
     match: Match;
@@ -8,7 +8,7 @@ interface LineupsProps {
 const Lineups: React.FC<LineupsProps> = ({ match }) => {
     const { lineups, homeTeamName, awayTeamName } = match;
 
-    const renderTeamLineup = (teamName: string, players: Player[]) => (
+    const renderTeamLineup = (teamName: string, players: LineupPlayer[]) => (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                 <h3 className="font-bold text-gray-900">{teamName}</h3>

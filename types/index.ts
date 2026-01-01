@@ -23,6 +23,12 @@ export interface Player {
     image?: string | null;
 }
 
+export interface LineupPlayer {
+    number: number;
+    name: string;
+    position: string;
+}
+
 export interface StatComparison {
     home: number;
     away: number;
@@ -68,8 +74,8 @@ export interface Team extends LeagueTeamStats {
 }
 
 export interface Lineups {
-    home: Player[];
-    away: Player[];
+    home: LineupPlayer[];
+    away: LineupPlayer[];
 }
 
 export interface Match {
@@ -99,8 +105,8 @@ export interface MatchData {
     id: number;
     homeTeam: string;
     awayTeam: string;
-    time: string;
-    venue: string;
+    time?: string;
+    venue?: string;
     homeScore?: number;
     awayScore?: number;
     date?: string;

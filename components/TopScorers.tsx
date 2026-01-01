@@ -53,7 +53,7 @@ const TopScorers = () => {
                             {/* Goals Badge */}
                             <div className="flex-shrink-0">
                                 <span className="inline-flex items-center justify-center min-w-[2.5rem] h-10 px-3 rounded-lg bg-gradient-to-br from-mwiri-yellow to-mwiri-gold text-mwiri-blue-dark font-black text-lg shadow-sm">
-                                    {player.goals}
+                                    {player.goals ?? 0}
                                 </span>
                             </div>
                         </div>
