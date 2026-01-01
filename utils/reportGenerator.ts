@@ -26,8 +26,8 @@ export const generateMatchDayReport = (fixtureId: number): string => {
         // Detailed match info (for events)
         const detailedMatch = (matchDetails[matchBase.id.toString() as keyof typeof matchDetails] || null) as unknown as Match;
 
-        const hScore = matchBase.homeScore;
-        const aScore = matchBase.awayScore;
+        const hScore = matchBase.homeScore ?? 0;
+        const aScore = matchBase.awayScore ?? 0;
         const total = hScore + aScore;
         const margin = Math.abs(hScore - aScore);
 
