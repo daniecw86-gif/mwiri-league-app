@@ -66,6 +66,7 @@ const Navbar = () => {
         { name: 'Results', href: '/results' },
         { name: 'Stats', href: '/stats' },
         { name: 'Knockout', href: '/knockout' },
+        { name: 'Gallery', href: '/gallery' },
         { name: 'Fantasy', href: '/fantasy' },
         { name: 'Clubs', href: '/clubs' },
         { name: 'News', href: '/news' },
