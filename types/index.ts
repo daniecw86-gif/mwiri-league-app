@@ -117,3 +117,18 @@ export interface FixtureGroup {
     date: string;
     matches: MatchData[];
 }
+
+export interface KnockoutMatch {
+    id: number;
+    round: 'quarter' | 'semi' | 'final';
+    position: number; // Position in the round (1-4 for QF, 1-2 for SF, 1 for F)
+    homeTeam: string | null; // null = TBD
+    awayTeam: string | null;
+    homeScore?: number;
+    awayScore?: number;
+    status: 'upcoming' | 'live' | 'completed';
+    date?: string;
+    time?: string;
+    venue?: string;
+    winner?: string | null;
+}

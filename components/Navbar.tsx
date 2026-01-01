@@ -64,6 +64,7 @@ const Navbar = () => {
         { name: 'Fixtures', href: '/fixtures' },
         { name: 'Results', href: '/results' },
         { name: 'Stats', href: '/stats' },
+        { name: 'Knockout', href: '/knockout' },
         { name: 'Fantasy', href: '/fantasy' },
         { name: 'Clubs', href: '/clubs' },
         { name: 'News', href: '/news' },
