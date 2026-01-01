@@ -8,6 +8,7 @@ import { teams } from '../data/teams';
 import { players } from '../data/players';
 import { useRouter } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
+import InstallAppButton from './InstallAppButton';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -176,6 +177,8 @@ const Navbar = () => {
                             <Link href="/fantasy" className="bg-mwiri-yellow text-mwiri-blue-deep px-5 py-2 rounded-full text-sm font-bold hover:bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
                                 Fantasy
                             </Link>
+
+                            <InstallAppButton />
 
                             <div className="border-l border-white/20 pl-4">
                                 <ThemeToggle />
