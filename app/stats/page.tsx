@@ -5,25 +5,22 @@ import { statsData } from '../../data/stats';
 
 const StatsPage = () => {
     return (
-        <div className="min-h-screen bg-transparent pb-12">
+        <div className="min-h-screen">
             {/* Hero Section */}
-            <div className="bg-mwiri-blue-deep text-white py-16 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <path d="M0 100 L100 0 L100 100 Z" fill="currentColor" />
-                    </svg>
-                </div>
+            <div className="crystal-glass border-b border-mwiri-gold/20 py-12 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Stats Centre</h1>
-                    <p className="text-xl text-blue-200 max-w-2xl">
+                    <h1 className="font-barlow text-4xl md:text-5xl font-black tracking-tight text-white mb-3">
+                        📊 Stats Centre
+                    </h1>
+                    <p className="text-lg text-white/60 max-w-2xl">
                         Dive deep into the numbers. Explore comprehensive statistics for players and clubs in the Mwiri League.
                     </p>
                 </div>
             </div>
 
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Top Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 -mt-14 relative z-10">
                     {statsData.topScorers.length > 0 && (
                         <StatsCard
                             title="Golden Boot"
@@ -51,7 +48,7 @@ const StatsPage = () => {
                 </div>
 
                 {/* Leaderboards */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <LeaderboardTable
                         title="Top Scorers"
                         data={statsData.topScorers}
@@ -68,32 +65,32 @@ const StatsPage = () => {
                         valueLabel="Clean Sheets"
                     />
 
-                    {/* Club Stats Table (Reusing LeaderboardTable for simplicity, though props might need adjustment in a real app) */}
-                    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                        <div className="bg-gray-50 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-                            <h3 className="font-bold text-gray-900">Club Goals</h3>
-                            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Top 5</span>
+                    {/* Club Stats Table */}
+                    <div className="crystal-glass rounded-2xl overflow-hidden crystal-float">
+                        <div className="gradient-gold px-6 py-4 flex justify-between items-center">
+                            <h3 className="font-barlow font-bold text-mwiri-blue-deep">Club Goals</h3>
+                            <span className="text-xs font-bold text-mwiri-blue-deep/60 uppercase tracking-wider">Top 5</span>
                         </div>
                         <table className="w-full text-left text-sm">
-                            <thead className="bg-white text-gray-500 border-b border-gray-100">
+                            <thead className="text-white/50 border-b border-white/10">
                                 <tr>
                                     <th className="px-6 py-3 font-medium w-12">Pos</th>
                                     <th className="px-6 py-3 font-medium">Club</th>
                                     <th className="px-6 py-3 font-medium text-right">Goals</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-50 dark:divide-slate-700">
+                            <tbody className="divide-y divide-white/5">
                                 {statsData.clubStats.map((item) => (
-                                    <tr key={item.rank} className="hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
-                                        <td className="px-6 py-4 font-bold text-gray-900 dark:text-white">{item.rank}</td>
-                                        <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">{item.name}</td>
-                                        <td className="px-6 py-4 font-bold text-mwiri-blue text-right">{item.value}</td>
+                                    <tr key={item.rank} className="row-hover">
+                                        <td className="px-6 py-4 font-bold text-white">{item.rank}</td>
+                                        <td className="px-6 py-4 font-medium text-white">{item.name}</td>
+                                        <td className="px-6 py-4 font-bold text-mwiri-gold text-right">{item.value}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
-                        <div className="bg-gray-50 px-6 py-3 border-t border-gray-100 text-center">
-                            <button className="text-sm font-bold text-mwiri-blue hover:text-mwiri-blue-dark transition-colors">
+                        <div className="bg-white/5 px-6 py-3 border-t border-white/10 text-center">
+                            <button className="text-sm font-bold text-mwiri-gold hover:text-white transition-colors">
                                 View Full Table
                             </button>
                         </div>

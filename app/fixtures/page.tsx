@@ -32,49 +32,48 @@ export default function Fixtures() {
     const totalWeeks = fixtures.length;
 
     return (
-        <div className="min-h-screen bg-transparent">
+        <div className="min-h-screen">
             {/* Hero Section */}
-            <div className="bg-gradient-to-br from-mwiri-blue-deep via-mwiri-blue to-mwiri-blue-dark text-white py-16 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 bg-[url('/images/pattern.png')] bg-cover"></div>
+            <div className="crystal-glass border-b border-mwiri-gold/20 py-12 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <h1 className="text-5xl font-black tracking-tight mb-4 flex items-center gap-3">
+                    <h1 className="font-barlow text-4xl md:text-5xl font-black tracking-tight text-white mb-3 flex items-center gap-3">
                         <span className="text-4xl">📅</span>
                         Fixtures
                     </h1>
-                    <p className="text-xl text-blue-100 max-w-2xl">
+                    <p className="text-lg text-white/60 max-w-2xl">
                         View all upcoming matches across {totalWeeks} matchweeks
                     </p>
                 </div>
             </div>
 
-            <main className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+            <main className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
                 {/* Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 -mt-16 relative z-10">
-                    <div className="bg-white rounded-2xl shadow-premium-lg p-6 border border-gray-100">
-                        <div className="text-3xl font-black text-mwiri-blue mb-1">{totalMatches}</div>
-                        <div className="text-gray-600 text-sm font-medium">Total Fixtures</div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 -mt-14 relative z-10">
+                    <div className="crystal-glass rounded-2xl p-5 crystal-hover">
+                        <div className="text-3xl font-black text-mwiri-gold mb-1">{totalMatches}</div>
+                        <div className="text-white/50 text-sm font-medium">Total Fixtures</div>
                     </div>
-                    <div className="bg-white rounded-2xl shadow-premium-lg p-6 border border-gray-100">
-                        <div className="text-3xl font-black text-green-600 mb-1">{totalWeeks}</div>
-                        <div className="text-gray-600 text-sm font-medium">Matchweeks</div>
+                    <div className="crystal-glass rounded-2xl p-5 crystal-hover">
+                        <div className="text-3xl font-black text-white mb-1">{totalWeeks}</div>
+                        <div className="text-white/50 text-sm font-medium">Matchweeks</div>
                     </div>
-                    <div className="bg-white rounded-2xl shadow-premium-lg p-6 border border-gray-100">
-                        <div className="text-3xl font-black text-orange-600 mb-1">{teams.length}</div>
-                        <div className="text-gray-600 text-sm font-medium">Teams Competing</div>
+                    <div className="crystal-glass rounded-2xl p-5 crystal-hover">
+                        <div className="text-3xl font-black text-mwiri-gold mb-1">{teams.length}</div>
+                        <div className="text-white/50 text-sm font-medium">Teams Competing</div>
                     </div>
                 </div>
 
                 {/* Filters */}
                 <div className="mb-8 flex flex-col md:flex-row gap-4">
                     {/* Week Filter Tabs */}
-                    <div className="flex-1 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-100 dark:border-slate-700 p-2 overflow-x-auto" role="group" aria-label="Filter by week">
+                    <div className="flex-1 crystal-glass rounded-xl p-2 overflow-x-auto scrollbar-crystal" role="group" aria-label="Filter by week">
                         <div className="flex gap-2 min-w-max">
                             <button
                                 onClick={() => setSelectedWeek("all")}
                                 aria-pressed={selectedWeek === "all"}
                                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${selectedWeek === "all"
-                                    ? "bg-mwiri-blue text-white shadow-sm"
-                                    : "bg-gray-50 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600"
+                                    ? "bg-mwiri-gold text-mwiri-blue-deep shadow-sm"
+                                    : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
                                     }`}
                             >
                                 All Weeks
@@ -85,8 +84,8 @@ export default function Fixtures() {
                                     onClick={() => setSelectedWeek(week)}
                                     aria-pressed={selectedWeek === week}
                                     className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${selectedWeek === week
-                                        ? "bg-mwiri-blue text-white shadow-sm"
-                                        : "bg-gray-50 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600"
+                                        ? "bg-mwiri-gold text-mwiri-blue-deep shadow-sm"
+                                        : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
                                         }`}
                                 >
                                     Week {week}
@@ -101,11 +100,11 @@ export default function Fixtures() {
                         id="team-filter"
                         value={selectedTeam}
                         onChange={(e) => setSelectedTeam(e.target.value)}
-                        className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 font-bold text-sm text-gray-900 dark:text-white focus:outline-none focus:border-mwiri-blue focus:ring-2 focus:ring-mwiri-blue/20 transition-all"
+                        className="crystal-glass border border-mwiri-gold/20 rounded-xl px-4 py-3 font-bold text-sm text-white bg-transparent focus:outline-none focus:border-mwiri-gold focus:ring-2 focus:ring-mwiri-gold/20 transition-all"
                     >
-                        <option value="all">All Teams</option>
+                        <option value="all" className="bg-mwiri-blue-deep text-white">All Teams</option>
                         {teams.map(team => (
-                            <option key={team.id} value={team.name}>{team.name}</option>
+                            <option key={team.id} value={team.name} className="bg-mwiri-blue-deep text-white">{team.name}</option>
                         ))}
                     </select>
                 </div>
@@ -115,12 +114,12 @@ export default function Fixtures() {
                     {filteredFixtures.map((group) => (
                         <div key={group.id}>
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="bg-mwiri-blue text-white px-4 py-2 rounded-lg font-black text-sm">
+                                <div className="bg-mwiri-gold text-mwiri-blue-deep px-4 py-2 rounded-lg font-black text-sm">
                                     Week {group.id}
                                 </div>
-                                <h3 className="text-xl font-black text-gray-900 dark:text-white">{group.date}</h3>
-                                <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
-                                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                                <h3 className="text-xl font-black text-white">{group.date}</h3>
+                                <div className="flex-1 h-px bg-white/10"></div>
+                                <span className="text-sm text-white/40 font-medium">
                                     {group.matches.length} {group.matches.length === 1 ? 'match' : 'matches'}
                                 </span>
                             </div>
@@ -135,10 +134,10 @@ export default function Fixtures() {
 
                 {/* No Results */}
                 {filteredFixtures.length === 0 && (
-                    <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div className="text-center py-16 crystal-glass rounded-2xl">
                         <div className="text-6xl mb-4">🔍</div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">No fixtures found</h3>
-                        <p className="text-gray-600">Try adjusting your filters</p>
+                        <h3 className="text-xl font-bold text-white mb-2">No fixtures found</h3>
+                        <p className="text-white/50">Try adjusting your filters</p>
                     </div>
                 )}
             </main>
