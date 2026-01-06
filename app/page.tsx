@@ -42,7 +42,6 @@ export default function Home() {
 
   // Get top scorer
   const topScorer = [...players].sort((a, b) => (b.goals ?? 0) - (a.goals ?? 0))[0];
-  const topScorerTeam = topScorer ? teamMap.get(topScorer.teamName) : null;
 
   // Get next fixture and latest results
   const nextFixture = getNextFixture();
