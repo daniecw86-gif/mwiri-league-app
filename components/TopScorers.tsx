@@ -17,10 +17,10 @@ const TopScorers = () => {
         <div className="crystal-glass rounded-2xl overflow-hidden">
             {/* Golden Header */}
             <div className="gradient-gold p-4 border-b border-mwiri-gold-dark/30">
-                <h3 className="font-barlow font-black text-mwiri-green-deep text-lg tracking-tight flex items-center gap-2">
+                <h3 className="font-barlow font-black text-mwiri-blue-deep text-lg tracking-tight flex items-center gap-2">
                     <span>⚽</span> Top Scorers
                 </h3>
-                <p className="text-mwiri-green-deep/70 text-xs mt-0.5 font-medium">Leading goal scorers this season</p>
+                <p className="text-mwiri-blue-deep/70 text-xs mt-0.5 font-medium">Leading goal scorers this season</p>
             </div>
 
             <div className="divide-y divide-white/5">
@@ -46,8 +46,8 @@ const TopScorers = () => {
 
                                 {/* Player Avatar */}
                                 <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm ${isTopScorer
-                                        ? 'bg-gradient-to-br from-mwiri-gold to-mwiri-gold-dark text-mwiri-green-deep shadow-lg'
-                                        : 'bg-white/10 text-white/70'
+                                    ? 'bg-gradient-to-br from-mwiri-gold to-mwiri-gold-dark text-mwiri-blue-deep shadow-lg'
+                                    : 'bg-white/10 text-white/70'
                                     }`}>
                                     {player.name.charAt(0)}
                                 </div>
@@ -64,8 +64,8 @@ const TopScorers = () => {
                             {/* Goals Badge */}
                             <div className="flex-shrink-0 relative z-10">
                                 <span className={`inline-flex items-center justify-center min-w-[2.25rem] h-9 px-2.5 rounded-xl font-black text-base ${isTopScorer
-                                        ? 'bg-gradient-to-br from-mwiri-gold to-mwiri-gold-dark text-mwiri-green-deep shadow-lg text-shadow-gold'
-                                        : 'bg-white/10 text-mwiri-gold'
+                                    ? 'bg-gradient-to-br from-mwiri-gold to-mwiri-gold-dark text-mwiri-blue-deep shadow-lg text-shadow-gold'
+                                    : 'bg-white/10 text-mwiri-gold'
                                     }`}>
                                     {player.goals ?? 0}
                                 </span>

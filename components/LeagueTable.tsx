@@ -64,7 +64,7 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
           <thead className="text-xs text-white uppercase gradient-mwiri sticky top-0 z-10">
             <tr>
               <th scope="col" className="px-3 py-3 w-14 text-center font-bold">#</th>
-              <th scope="col" className="px-3 py-3 font-bold sticky left-0 bg-mwiri-green z-20">Club</th>
+              <th scope="col" className="px-3 py-3 font-bold sticky left-0 bg-mwiri-blue z-20">Club</th>
               <th scope="col" className="px-3 py-3 text-center font-bold">Pl</th>
               <th scope="col" className="px-3 py-3 text-center font-bold">W</th>
               <th scope="col" className="px-3 py-3 text-center font-bold">D</th>
@@ -116,7 +116,7 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
                   </td>
 
                   {/* Club Name with Logo - Sticky */}
-                  <td className="px-3 py-3 sticky left-0 bg-mwiri-green-deep/80 backdrop-blur-sm z-10">
+                  <td className="px-3 py-3 sticky left-0 bg-mwiri-blue-deep/80 backdrop-blur-sm z-10">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 relative flex-shrink-0 bg-white/10 rounded-lg p-1">
                         {team.logo ? (
@@ -147,7 +147,7 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
                     {stats.gf - stats.ga > 0 ? `+${stats.gf - stats.ga}` : stats.gf - stats.ga}
                   </td>
                   <td className="px-3 py-3 text-center">
-                    <span className="inline-flex items-center justify-center min-w-[2rem] h-7 px-2 rounded-lg bg-mwiri-gold text-mwiri-green-deep font-bold text-sm">
+                    <span className="inline-flex items-center justify-center min-w-[2rem] h-7 px-2 rounded-lg bg-mwiri-gold text-mwiri-blue-deep font-bold text-sm">
                       {stats.points}
                     </span>
                   </td>

@@ -257,7 +257,7 @@ export default function Home() {
                     </div>
 
                     {/* Score */}
-                    <div className="flex-shrink-0 px-3 py-1 rounded-lg bg-mwiri-green/50 text-white font-bold text-sm">
+                    <div className="flex-shrink-0 px-3 py-1 rounded-lg bg-mwiri-blue/50 text-white font-bold text-sm">
                       {match.homeScore} - {match.awayScore}
                     </div>
 

@@ -236,15 +236,15 @@ const Navbar = () => {
                 <div
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[60vh] opacity-100' : 'max-h-0 opacity-0'}`}
                 >
-                    <div className="px-4 py-4 space-y-1 bg-mwiri-green-deep/95 border-t border-white/10 max-h-[50vh] overflow-y-auto scrollbar-crystal">
+                    <div className="px-4 py-4 space-y-1 bg-mwiri-blue-deep/95 border-t border-white/10 max-h-[50vh] overflow-y-auto scrollbar-crystal">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
                                 onClick={toggleMenu}
                                 className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-colors ${pathname === link.href
-                                        ? 'bg-mwiri-gold/20 text-mwiri-gold'
-                                        : 'text-white hover:bg-white/10'
+                                    ? 'bg-mwiri-gold/20 text-mwiri-gold'
+                                    : 'text-white hover:bg-white/10'
                                     }`}
                             >
                                 <span className="text-lg">{link.icon}</span>

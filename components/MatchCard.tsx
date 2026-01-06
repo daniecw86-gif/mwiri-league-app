@@ -47,7 +47,7 @@ const MatchCard: React.FC<MatchCardProps> = ({
                         Live
                     </span>
                 ) : isResult ? (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-mwiri-green/30 text-white text-xs font-bold uppercase tracking-wider">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-mwiri-blue/30 text-white text-xs font-bold uppercase tracking-wider">
                         FT
                     </span>
                 ) : (
@@ -85,7 +85,7 @@ const MatchCard: React.FC<MatchCardProps> = ({
                 {/* VS Badge / Score */}
                 <div className="flex flex-col items-center gap-1">
                     {isResult ? (
-                        <div className={`rounded-xl bg-mwiri-green/50 text-white font-black ${isFeatured ? 'px-6 py-3 text-2xl' : isCompact ? 'px-2 py-1 text-sm' : 'px-4 py-2 text-lg'
+                        <div className={`rounded-xl bg-mwiri-blue/50 text-white font-black ${isFeatured ? 'px-6 py-3 text-2xl' : isCompact ? 'px-2 py-1 text-sm' : 'px-4 py-2 text-lg'
                             }`}>
                             {match.homeScore} - {match.awayScore}
                         </div>

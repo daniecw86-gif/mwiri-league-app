@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#006400" },
-    { media: "(prefers-color-scheme: dark)", color: "#001a00" },
+    { media: "(prefers-color-scheme: light)", color: "#005696" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a1628" },
   ],
   icons: {
     icon: [

@@ -41,7 +41,7 @@ const MatchStrip = () => {
                                         LIVE
                                     </span>
                                 ) : match.type === 'result' ? (
-                                    <span className="text-[10px] font-bold text-white bg-mwiri-green/50 px-2 py-0.5 rounded-full">FT</span>
+                                    <span className="text-[10px] font-bold text-white bg-mwiri-blue/50 px-2 py-0.5 rounded-full">FT</span>
                                 ) : (
                                     <span className="text-[10px] font-bold text-white/50 bg-white/10 px-2 py-0.5 rounded-full">{match.time || '16:00'}</span>
                                 )}
@@ -63,8 +63,8 @@ const MatchStrip = () => {
 
                                 {/* Score/VS */}
                                 <div className={`text-xs font-bold px-2 py-0.5 rounded-md min-w-[36px] text-center ${match.type === 'result'
-                                        ? 'bg-mwiri-gold/20 text-mwiri-gold'
-                                        : 'bg-white/10 text-white/40'
+                                    ? 'bg-mwiri-gold/20 text-mwiri-gold'
+                                    : 'bg-white/10 text-white/40'
                                     }`}>
                                     {match.type === 'result' ? (
                                         `${match.homeScore}-${match.awayScore}`
