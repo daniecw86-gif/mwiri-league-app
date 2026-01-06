@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -7,14 +7,17 @@ import { ThemeProvider } from "../components/ThemeProvider";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import InstallBanner from "../components/InstallBanner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const barlow = Barlow({
+  variable: "--font-barlow",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -30,8 +33,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0070C0" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a1628" },
+    { media: "(prefers-color-scheme: light)", color: "#006400" },
+    { media: "(prefers-color-scheme: dark)", color: "#001a00" },
   ],
   icons: {
     icon: [
@@ -58,18 +61,28 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${barlow.variable} antialiased min-h-screen`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          {/* Animated Crystal Background */}
+          <div className="crystal-bg" aria-hidden="true">
+            <div className="crystal-orb crystal-orb-gold"></div>
+            <div className="crystal-orb crystal-orb-white"></div>
+          </div>
+
           <ErrorBoundary>
-            <Navbar />
-            {children}
-            <Footer />
+            <div className="relative z-10 flex flex-col min-h-screen">
+              <Navbar />
+              <main className="flex-grow pb-20 md:pb-0">
+                {children}
+              </main>
+              <Footer />
+            </div>
             <InstallBanner />
           </ErrorBoundary>
         </ThemeProvider>
