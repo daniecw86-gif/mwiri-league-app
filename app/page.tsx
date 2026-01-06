@@ -5,6 +5,7 @@ import { players } from "../data/players";
 import { newsItems } from "../data/news";
 import LeagueTable from "../components/LeagueTable";
 import TopScorers from "../components/TopScorers";
+import Sponsors from "../components/Sponsors";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -314,6 +315,9 @@ export default function Home() {
 
         </div>
       </div>
+
+      {/* Partners & Sponsors */}
+      <Sponsors />
     </main>
   );
 }
