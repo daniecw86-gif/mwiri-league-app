@@ -82,11 +82,11 @@ const StatsPage = () => {
                                     <th className="px-6 py-3 font-medium text-right">Goals</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-50">
-                                {statsData.clubStats.map((item: any) => (
-                                    <tr key={item.rank} className="hover:bg-gray-50 transition-colors">
-                                        <td className="px-6 py-4 font-bold text-gray-900">{item.rank}</td>
-                                        <td className="px-6 py-4 font-medium text-gray-900">{item.name}</td>
+                            <tbody className="divide-y divide-gray-50 dark:divide-slate-700">
+                                {statsData.clubStats.map((item) => (
+                                    <tr key={item.rank} className="hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
+                                        <td className="px-6 py-4 font-bold text-gray-900 dark:text-white">{item.rank}</td>
+                                        <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">{item.name}</td>
                                         <td className="px-6 py-4 font-bold text-mwiri-blue text-right">{item.value}</td>
                                     </tr>
                                 ))}

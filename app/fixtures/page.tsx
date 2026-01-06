@@ -67,13 +67,14 @@ export default function Fixtures() {
                 {/* Filters */}
                 <div className="mb-8 flex flex-col md:flex-row gap-4">
                     {/* Week Filter Tabs */}
-                    <div className="flex-1 bg-white rounded-xl shadow-sm border border-gray-100 p-2 overflow-x-auto">
+                    <div className="flex-1 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-100 dark:border-slate-700 p-2 overflow-x-auto" role="group" aria-label="Filter by week">
                         <div className="flex gap-2 min-w-max">
                             <button
                                 onClick={() => setSelectedWeek("all")}
+                                aria-pressed={selectedWeek === "all"}
                                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${selectedWeek === "all"
-                                        ? "bg-mwiri-blue text-white shadow-sm"
-                                        : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                                    ? "bg-mwiri-blue text-white shadow-sm"
+                                    : "bg-gray-50 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600"
                                     }`}
                             >
                                 All Weeks
@@ -82,9 +83,10 @@ export default function Fixtures() {
                                 <button
                                     key={week}
                                     onClick={() => setSelectedWeek(week)}
+                                    aria-pressed={selectedWeek === week}
                                     className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${selectedWeek === week
-                                            ? "bg-mwiri-blue text-white shadow-sm"
-                                            : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                                        ? "bg-mwiri-blue text-white shadow-sm"
+                                        : "bg-gray-50 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600"
                                         }`}
                                 >
                                     Week {week}
@@ -94,10 +96,12 @@ export default function Fixtures() {
                     </div>
 
                     {/* Team Filter */}
+                    <label htmlFor="team-filter" className="sr-only">Filter by team</label>
                     <select
+                        id="team-filter"
                         value={selectedTeam}
                         onChange={(e) => setSelectedTeam(e.target.value)}
-                        className="bg-white border border-gray-200 rounded-xl px-4 py-3 font-bold text-sm focus:outline-none focus:border-mwiri-blue focus:ring-2 focus:ring-mwiri-blue/20 transition-all"
+                        className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 font-bold text-sm text-gray-900 dark:text-white focus:outline-none focus:border-mwiri-blue focus:ring-2 focus:ring-mwiri-blue/20 transition-all"
                     >
                         <option value="all">All Teams</option>
                         {teams.map(team => (
@@ -114,9 +118,9 @@ export default function Fixtures() {
                                 <div className="bg-mwiri-blue text-white px-4 py-2 rounded-lg font-black text-sm">
                                     Week {group.id}
                                 </div>
-                                <h3 className="text-xl font-black text-gray-900">{group.date}</h3>
-                                <div className="flex-1 h-px bg-gray-200"></div>
-                                <span className="text-sm text-gray-500 font-medium">
+                                <h3 className="text-xl font-black text-gray-900 dark:text-white">{group.date}</h3>
+                                <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
+                                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">
                                     {group.matches.length} {group.matches.length === 1 ? 'match' : 'matches'}
                                 </span>
                             </div>

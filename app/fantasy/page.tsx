@@ -101,35 +101,37 @@ export default function FantasyHub() {
                         </div>
                     </div>
 
-                    {/* Fantasy League */}
-                    <div className="bg-white rounded-2xl shadow-premium-lg border border-gray-100 overflow-hidden opacity-60">
-                        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-8 text-center">
-                            <div className="text-6xl mb-4">⚽</div>
-                            <h2 className="text-2xl font-black text-white">Fantasy League</h2>
-                        </div>
-                        <div className="p-6">
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                Pick your weekly squad within budget. Earn points based on player performance and climb the rankings!
-                            </p>
-                            <div className="space-y-2 mb-6">
-                                <div className="flex items-center gap-2 text-sm text-gray-600">
-                                    <span className="text-gray-400">○</span>
-                                    <span>$100M budget system</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-sm text-gray-600">
-                                    <span className="text-gray-400">○</span>
-                                    <span>Weekly team management</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-sm text-gray-600">
-                                    <span className="text-gray-400">○</span>
-                                    <span>Season-long competition</span>
-                                </div>
+                    {/* Fantasy Pick'em */}
+                    <Link href="/fantasy/pickem">
+                        <div className="bg-white rounded-2xl shadow-premium-lg border border-gray-100 overflow-hidden hover-lift cursor-pointer group">
+                            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-8 text-center">
+                                <div className="text-6xl mb-4">⚽</div>
+                                <h2 className="text-2xl font-black text-white">Fantasy Pick&apos;em</h2>
                             </div>
-                            <button disabled className="w-full bg-gray-200 text-gray-500 font-bold py-3 rounded-xl cursor-not-allowed">
-                                Coming Soon
-                            </button>
+                            <div className="p-6">
+                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                    Pick your weekly squad within budget. Earn points based on player performance and track your progress!
+                                </p>
+                                <div className="space-y-2 mb-6">
+                                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                                        <span className="text-green-500">✓</span>
+                                        <span>100 coin budget system</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                                        <span className="text-green-500">✓</span>
+                                        <span>Pick 5 players each week</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                                        <span className="text-green-500">✓</span>
+                                        <span>Points for goals, assists & more</span>
+                                    </div>
+                                </div>
+                                <button className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all shadow-sm group-hover:shadow-lg">
+                                    Play Now →
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
 
                 {/* How It Works */}

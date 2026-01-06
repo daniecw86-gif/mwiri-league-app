@@ -45,14 +45,15 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
   return (
     <div className="flex flex-col gap-4">
       {/* Filter Tabs */}
-      <div className="flex bg-gray-100 p-1 rounded-lg self-start">
+      <div className="flex bg-gray-100 dark:bg-slate-700 p-1 rounded-lg self-start">
         {(['Overall', 'Home', 'Away'] as FilterType[]).map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f)}
+            aria-label={`Filter by ${f} stats`}
             className={`px-4 py-1.5 text-xs font-bold rounded-md transition-all ${filter === f
-              ? 'bg-white text-mwiri-blue shadow-sm'
-              : 'text-gray-500 hover:text-gray-700'
+              ? 'bg-white dark:bg-slate-800 text-mwiri-blue shadow-sm'
+              : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
               }`}
           >
             {f}
@@ -61,7 +62,7 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
       </div>
 
       {/* Premium League Table */}
-      <div className="overflow-hidden shadow-premium-lg rounded-2xl border border-gray-100 bg-white">
+      <div className="overflow-hidden shadow-premium-lg rounded-2xl border border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-800">
         <table className="w-full text-sm text-left">
           {/* Sticky Header with Gradient */}
           <thead className="text-xs text-white uppercase gradient-blue sticky top-0 z-10">
@@ -78,13 +79,13 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
             </tr>
           </thead>
 
-          <tbody className="divide-y divide-gray-100">
+          <tbody className="divide-y divide-gray-100 dark:divide-slate-700">
             {sortedTeams.map((team, index) => {
               const stats = getTeamStats(team);
               const position = index + 1;
 
               // Position badge styling
-              let positionBadgeClass = 'bg-gray-100 text-gray-600';
+              let positionBadgeClass = 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300';
               let positionIcon = null;
 
               if (position === 1) {
@@ -99,7 +100,7 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
               }
 
               // Striped rows
-              const rowBg = index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50';
+              const rowBg = index % 2 === 0 ? 'bg-white dark:bg-slate-800' : 'bg-gray-50/50 dark:bg-slate-800/50';
 
               return (
                 <tr
@@ -124,7 +125,7 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
                   {/* Club Name with Logo */}
                   <td className="px-4 py-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 relative flex-shrink-0 bg-gray-50 rounded-lg p-1.5">
+                      <div className="w-10 h-10 relative flex-shrink-0 bg-gray-50 dark:bg-slate-700 rounded-lg p-1.5">
                         {team.logo ? (
                           <Image
                             src={team.logo}
@@ -133,21 +134,21 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
                             className="object-contain p-0.5"
                           />
                         ) : (
-                          <div className="w-full h-full rounded-lg bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-500">
+                          <div className="w-full h-full rounded-lg bg-gray-200 dark:bg-slate-600 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-gray-300">
                             {team.name.charAt(0)}
                           </div>
                         )}
                       </div>
-                      <span className="font-bold text-gray-900 truncate">{team.name}</span>
+                      <span className="font-bold text-gray-900 dark:text-white truncate">{team.name}</span>
                     </div>
                   </td>
 
                   {/* Stats Columns */}
-                  <td className="px-4 py-4 text-center text-gray-600 font-medium">{stats.played}</td>
+                  <td className="px-4 py-4 text-center text-gray-600 dark:text-gray-400 font-medium">{stats.played}</td>
                   <td className="px-4 py-4 text-center text-green-600 font-semibold">{stats.won}</td>
-                  <td className="px-4 py-4 text-center text-gray-500 font-medium">{stats.drawn}</td>
+                  <td className="px-4 py-4 text-center text-gray-500 dark:text-gray-400 font-medium">{stats.drawn}</td>
                   <td className="px-4 py-4 text-center text-red-500 font-semibold">{stats.lost}</td>
-                  <td className={`px-4 py-4 text-center font-bold ${stats.gf - stats.ga > 0 ? 'text-green-600' : stats.gf - stats.ga < 0 ? 'text-red-500' : 'text-gray-500'}`}>
+                  <td className={`px-4 py-4 text-center font-bold ${stats.gf - stats.ga > 0 ? 'text-green-600' : stats.gf - stats.ga < 0 ? 'text-red-500' : 'text-gray-500 dark:text-gray-400'}`}>
                     {stats.gf - stats.ga > 0 ? `+${stats.gf - stats.ga}` : stats.gf - stats.ga}
                   </td>
                   <td className="px-4 py-4 text-center">

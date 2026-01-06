@@ -65,9 +65,9 @@ export default function Home() {
 
           {/* Left Column - League Table (Takes 4 columns on large screens) */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-white rounded-2xl shadow-premium-lg p-6 sticky top-24">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-premium-lg p-6 sticky top-24">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2">
+                <h2 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
                   <span className="text-2xl">🏆</span>
                   League Standings
                 </h2>
@@ -84,7 +84,7 @@ export default function Home() {
             {/* Latest News Section */}
             <section>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-black text-gray-900 flex items-center gap-2">
+                <h2 className="text-3xl font-black text-gray-900 dark:text-white flex items-center gap-2">
                   <span className="text-2xl">📰</span>
                   Latest News
                 </h2>
@@ -131,7 +131,7 @@ export default function Home() {
             <div className="sticky top-24 space-y-6">
               {/* Top Scorers */}
               <div>
-                <h2 className="text-xl font-black text-gray-900 mb-4 flex items-center gap-2">
+                <h2 className="text-xl font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <span>⚽</span> Top Scorers
                 </h2>
                 <TopScorers />
@@ -139,7 +139,7 @@ export default function Home() {
 
               {/* Yellow Cards */}
               <div>
-                <h2 className="text-xl font-black text-gray-900 mb-4 flex items-center gap-2">
+                <h2 className="text-xl font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <span>⚠️</span> Discipline
                 </h2>
                 <YellowCards />

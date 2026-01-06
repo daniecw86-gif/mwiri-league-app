@@ -1,20 +1,22 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import MatchHero from './MatchHero';
 import MatchTabs from './MatchTabs';
 import LineupView from './LineupView';
 import StatsComparison from './StatsComparison';
 import { teams } from '../data/teams';
+import { Match, Team, MatchEvent } from '../types';
 
 interface MatchCentreClientProps {
-    match: any;
+    match: Match;
 }
 
-const HeadToHeadView = ({ homeTeam, awayTeam }: { homeTeam: any, awayTeam: any }) => {
+const HeadToHeadView = ({ homeTeam, awayTeam }: { homeTeam: Team | undefined, awayTeam: Team | undefined }) => {
     if (!homeTeam || !awayTeam) return null;
 
-    const ComparisonRow = ({ label, homeValue, awayValue }: { label: string, homeValue: any, awayValue: any }) => {
+    const ComparisonRow = ({ label, homeValue, awayValue }: { label: string, homeValue: string | number, awayValue: string | number }) => {
         const homeBetter = typeof homeValue === 'number' && typeof awayValue === 'number' && homeValue > awayValue;
         const awayBetter = typeof awayValue === 'number' && typeof homeValue === 'number' && awayValue > homeValue;
 
@@ -32,28 +34,28 @@ const HeadToHeadView = ({ homeTeam, awayTeam }: { homeTeam: any, awayTeam: any }
     const awayForm = awayTeam.form.join(' - ');
 
     return (
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-100 dark:border-slate-700 p-8">
             <div className="flex items-center justify-between mb-8">
                 <div className="flex flex-col items-center gap-2 w-1/3">
                     <div className="w-16 h-16 relative">
                         {homeTeam.logo ? (
-                            <img src={homeTeam.logo} alt={homeTeam.name} className="w-full h-full object-contain" />
+                            <Image src={homeTeam.logo} alt={homeTeam.name} fill className="object-contain" />
                         ) : (
-                            <div className="w-full h-full rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-400">{homeTeam.name.charAt(0)}</div>
+                            <div className="w-full h-full rounded-full bg-gray-100 dark:bg-slate-700 flex items-center justify-center font-bold text-gray-400 dark:text-gray-300">{homeTeam.name.charAt(0)}</div>
                         )}
                     </div>
-                    <span className="font-bold text-gray-900 text-center">{homeTeam.name}</span>
+                    <span className="font-bold text-gray-900 dark:text-white text-center">{homeTeam.name}</span>
                 </div>
-                <div className="font-black text-4xl text-gray-200">VS</div>
+                <div className="font-black text-4xl text-gray-200 dark:text-slate-600">VS</div>
                 <div className="flex flex-col items-center gap-2 w-1/3">
                     <div className="w-16 h-16 relative">
                         {awayTeam.logo ? (
-                            <img src={awayTeam.logo} alt={awayTeam.name} className="w-full h-full object-contain" />
+                            <Image src={awayTeam.logo} alt={awayTeam.name} fill className="object-contain" />
                         ) : (
-                            <div className="w-full h-full rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-400">{awayTeam.name.charAt(0)}</div>
+                            <div className="w-full h-full rounded-full bg-gray-100 dark:bg-slate-700 flex items-center justify-center font-bold text-gray-400 dark:text-gray-300">{awayTeam.name.charAt(0)}</div>
                         )}
                     </div>
-                    <span className="font-bold text-gray-900 text-center">{awayTeam.name}</span>
+                    <span className="font-bold text-gray-900 dark:text-white text-center">{awayTeam.name}</span>
                 </div>
             </div>
 
@@ -85,8 +87,8 @@ const HeadToHeadView = ({ homeTeam, awayTeam }: { homeTeam: any, awayTeam: any }
 
 const MatchCentreClient: React.FC<MatchCentreClientProps> = ({ match }) => {
     const [activeTab, setActiveTab] = useState('overview');
-    const homeTeam = teams.find((t: any) => t.id === match.homeTeamId);
-    const awayTeam = teams.find((t: any) => t.id === match.awayTeamId);
+    const homeTeam = teams.find((t: Team) => t.id === match.homeTeamId);
+    const awayTeam = teams.find((t: Team) => t.id === match.awayTeamId);
 
     const renderContent = () => {
         switch (activeTab) {
@@ -115,15 +117,15 @@ const MatchCentreClient: React.FC<MatchCentreClientProps> = ({ match }) => {
                 return (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Match Events */}
-                        <div className="md:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                            <h3 className="font-bold text-gray-900 mb-6 border-b border-gray-100 pb-2">Match Events</h3>
+                        <div className="md:col-span-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-100 dark:border-slate-700 p-6">
+                            <h3 className="font-bold text-gray-900 dark:text-white mb-6 border-b border-gray-100 dark:border-slate-700 pb-2">Match Events</h3>
                             <div className="space-y-6 relative">
-                                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-100 -translate-x-1/2"></div>
-                                {match.events.map((event: any, index: number) => (
+                                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-100 dark:bg-slate-700 -translate-x-1/2"></div>
+                                {match.events.map((event: MatchEvent, index: number) => (
                                     <div key={index} className={`flex items-center ${event.team === 'home' ? 'justify-start' : 'justify-end'} relative`}>
                                         <div className={`w-[45%] ${event.team === 'home' ? 'text-right pr-4' : 'text-left pl-4 order-last'}`}>
-                                            <span className="font-bold text-gray-900 block text-lg leading-none">{event.player}</span>
-                                            <span className="text-xs text-gray-500 uppercase tracking-widest mt-1 block">{event.detail}</span>
+                                            <span className="font-bold text-gray-900 dark:text-white block text-lg leading-none">{event.player}</span>
+                                            <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1 block">{event.detail}</span>
                                         </div>
                                         <div className={`absolute left-1/2 -translate-x-1/2 w-10 h-10 border-2 rounded-full flex items-center justify-center z-10 text-sm font-bold shadow-sm ${event.team === 'home' ? 'bg-white border-mwiri-blue text-mwiri-blue' : 'bg-white border-mwiri-gold text-mwiri-gold-dark'
                                             }`}>

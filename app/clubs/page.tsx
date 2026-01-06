@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { teams } from "../../data/teams";
 import ClubCard from "../../components/ClubCard";
+import { Team } from "../../types";
 
 export default function Clubs() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -49,13 +50,15 @@ export default function Clubs() {
                     {/* Search Bar */}
                     <div className="relative flex-1 max-w-md">
                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
+                        <label htmlFor="club-search" className="sr-only">Search clubs</label>
                         <input
+                            id="club-search"
                             type="text"
-                            className="block w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-mwiri-blue focus:ring-2 focus:ring-mwiri-blue/20 transition-all"
+                            className="block w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-slate-700 rounded-xl leading-5 bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-mwiri-blue focus:ring-2 focus:ring-mwiri-blue/20 transition-all"
                             placeholder="Search clubs..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
@@ -63,30 +66,33 @@ export default function Clubs() {
                     </div>
 
                     {/* Sort Options */}
-                    <div className="flex gap-2">
+                    <div className="flex gap-2" role="group" aria-label="Sort clubs">
                         <button
                             onClick={() => setSortBy("points")}
+                            aria-pressed={sortBy === "points"}
                             className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${sortBy === "points"
-                                    ? "bg-mwiri-blue text-white shadow-sm"
-                                    : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                                ? "bg-mwiri-blue text-white shadow-sm"
+                                : "bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700"
                                 }`}
                         >
                             By Performance
                         </button>
                         <button
                             onClick={() => setSortBy("goals")}
+                            aria-pressed={sortBy === "goals"}
                             className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${sortBy === "goals"
-                                    ? "bg-mwiri-blue text-white shadow-sm"
-                                    : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                                ? "bg-mwiri-blue text-white shadow-sm"
+                                : "bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700"
                                 }`}
                         >
                             By Goals
                         </button>
                         <button
                             onClick={() => setSortBy("name")}
+                            aria-pressed={sortBy === "name"}
                             className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${sortBy === "name"
-                                    ? "bg-mwiri-blue text-white shadow-sm"
-                                    : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                                ? "bg-mwiri-blue text-white shadow-sm"
+                                : "bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700"
                                 }`}
                         >
                             A-Z
@@ -105,7 +111,7 @@ export default function Clubs() {
                                     Top Teams
                                 </h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                                    {topTeams.map((team: any) => (
+                                    {topTeams.map((team: Team) => (
                                         <ClubCard key={team.id} team={team} />
                                     ))}
                                 </div>
@@ -120,7 +126,7 @@ export default function Clubs() {
                                     Mid Table
                                 </h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                                    {midTable.map((team: any) => (
+                                    {midTable.map((team: Team) => (
                                         <ClubCard key={team.id} team={team} />
                                     ))}
                                 </div>
@@ -135,7 +141,7 @@ export default function Clubs() {
                                     Lower Half
                                 </h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                                    {lowerHalf.map((team: any) => (
+                                    {lowerHalf.map((team: Team) => (
                                         <ClubCard key={team.id} team={team} />
                                     ))}
                                 </div>
@@ -143,9 +149,8 @@ export default function Clubs() {
                         )}
                     </>
                 ) : (
-                    /* All Teams Grid */
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {filteredAndSortedTeams.map((team: any) => (
+                        {filteredAndSortedTeams.map((team: Team) => (
                             <ClubCard key={team.id} team={team} />
                         ))}
                     </div>

@@ -12,10 +12,10 @@ interface NewsCardProps {
 
 const NewsCard: React.FC<NewsCardProps> = ({ title, category, imageUrl, date, link }) => {
     return (
-        <Link href={link} className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full border border-slate-100 card-hover">
+        <Link href={link} className="group flex flex-col bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full border border-slate-100 dark:border-slate-700 card-hover">
             <div className="relative h-56 overflow-hidden">
                 {imageUrl ? (
-                    <div className="h-full overflow-hidden bg-gray-100 relative">
+                    <div className="h-full overflow-hidden bg-gray-100 dark:bg-slate-700 relative">
                         <Image src={imageUrl} alt={title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                     </div>
                 ) : (
@@ -33,16 +33,16 @@ const NewsCard: React.FC<NewsCardProps> = ({ title, category, imageUrl, date, li
             </div>
             <div className="p-6 flex-1 flex flex-col relative">
                 <div className="mb-4">
-                    <span className="text-xs font-semibold text-slate-400 flex items-center gap-2 mb-2">
+                    <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 flex items-center gap-2 mb-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-mwiri-yellow"></span>
                         {date}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-800 leading-tight group-hover:text-mwiri-blue transition-colors line-clamp-2">
+                    <h3 className="text-lg font-bold text-slate-800 dark:text-white leading-tight group-hover:text-mwiri-blue transition-colors line-clamp-2">
                         {title}
                     </h3>
                 </div>
 
-                <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                <div className="mt-auto pt-4 border-t border-slate-50 dark:border-slate-700 flex items-center justify-between">
                     <span className="text-xs font-bold text-mwiri-blue group-hover:translate-x-1 transition-transform duration-300 flex items-center gap-1">
                         Read Article
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>

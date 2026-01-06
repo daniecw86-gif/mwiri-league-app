@@ -13,7 +13,7 @@ const TopScorers = () => {
     };
 
     return (
-        <div className="bg-white rounded-2xl shadow-premium-lg border border-gray-100 overflow-hidden">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-premium-lg border border-gray-100 dark:border-slate-700 overflow-hidden">
             {/* Gradient Header */}
             <div className="gradient-blue p-5 border-b border-blue-800">
                 <h3 className="font-black text-white text-xl tracking-tight flex items-center gap-2">
@@ -22,11 +22,11 @@ const TopScorers = () => {
                 <p className="text-blue-100 text-xs mt-1 font-medium">Leading goal scorers this season</p>
             </div>
 
-            <div className="divide-y divide-gray-100">
+            <div className="divide-y divide-gray-100 dark:divide-slate-700">
                 {sortedPlayers.map((player, index) => {
                     const position = index + 1;
                     const medal = getMedalIcon(position);
-                    const rowBg = index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50';
+                    const rowBg = index % 2 === 0 ? 'bg-white dark:bg-slate-800' : 'bg-gray-50/50 dark:bg-slate-800/50';
 
                     return (
                         <div
@@ -39,14 +39,14 @@ const TopScorers = () => {
                                     {medal ? (
                                         <span className="text-2xl">{medal}</span>
                                     ) : (
-                                        <span className="text-sm font-bold text-gray-400">{position}</span>
+                                        <span className="text-sm font-bold text-gray-400 dark:text-gray-500">{position}</span>
                                     )}
                                 </div>
 
                                 {/* Player Info */}
                                 <div className="flex-1 min-w-0">
-                                    <p className="font-bold text-gray-900 truncate">{player.name}</p>
-                                    <p className="text-xs text-gray-500 font-medium">{player.teamName}</p>
+                                    <p className="font-bold text-gray-900 dark:text-white truncate">{player.name}</p>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">{player.teamName}</p>
                                 </div>
                             </div>
 
@@ -62,7 +62,7 @@ const TopScorers = () => {
             </div>
 
             {/* Footer */}
-            <div className="bg-gray-50 px-5 py-3 border-t border-gray-100">
+            <div className="bg-gray-50 dark:bg-slate-700 px-5 py-3 border-t border-gray-100 dark:border-slate-600">
                 <a href="/stats" className="text-sm font-bold text-mwiri-blue hover:text-mwiri-blue-dark transition-colors flex items-center justify-end gap-1">
                     View Full Stats <span>→</span>
                 </a>
