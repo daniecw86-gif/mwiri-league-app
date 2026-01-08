@@ -1,6 +1,7 @@
 import React from 'react';
 import StatsCard from '../../components/StatsCard';
 import LeaderboardTable from '../../components/LeaderboardTable';
+import RedCards from '../../components/RedCards';
 import { statsData } from '../../data/stats';
 
 const StatsPage = () => {
@@ -64,6 +65,9 @@ const StatsPage = () => {
                         data={statsData.cleanSheets}
                         valueLabel="Clean Sheets"
                     />
+
+                    {/* Red Cards */}
+                    <RedCards />
 
                     {/* Club Stats Table */}
                     <div className="crystal-glass rounded-2xl overflow-hidden crystal-float">

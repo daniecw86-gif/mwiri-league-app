@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import InstallBanner from "../components/InstallBanner";
+import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -84,6 +85,7 @@ export default function RootLayout({
               <Footer />
             </div>
             <InstallBanner />
+            <ServiceWorkerRegistration />
           </ErrorBoundary>
         </ThemeProvider>
       </body>

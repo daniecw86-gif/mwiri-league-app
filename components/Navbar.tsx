@@ -61,6 +61,8 @@ const Navbar = () => {
         { name: 'Fixtures', href: '/fixtures', icon: '📅' },
         { name: 'Results', href: '/results', icon: '⚽' },
         { name: 'Stats', href: '/stats', icon: '📈' },
+        { name: 'Compare', href: '/compare', icon: '⚔️' },
+        { name: 'Predict', href: '/predictions', icon: '🔮' },
         { name: 'Knockout', href: '/knockout', icon: '🏆' },
         { name: 'Gallery', href: '/gallery', icon: '📸' },
         { name: 'Fantasy', href: '/fantasy', icon: '🎮' },

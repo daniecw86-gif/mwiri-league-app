@@ -5,6 +5,7 @@ import { players } from "../data/players";
 import { newsItems } from "../data/news";
 import LeagueTable from "../components/LeagueTable";
 import TopScorers from "../components/TopScorers";
+import LeagueSummary from "../components/LeagueSummary";
 import Sponsors from "../components/Sponsors";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -179,26 +180,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Quick Stats Row */}
-          <div className="lg:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <div className="crystal-glass rounded-2xl p-5 text-center crystal-hover">
-              <div className="text-3xl font-black text-white mb-1">{teams.length}</div>
-              <div className="text-white/50 text-xs font-medium uppercase tracking-wider">Teams</div>
-            </div>
-            <div className="crystal-glass rounded-2xl p-5 text-center crystal-hover">
-              <div className="text-3xl font-black text-mwiri-gold mb-1">{totalMatches}</div>
-              <div className="text-white/50 text-xs font-medium uppercase tracking-wider">Matches</div>
-            </div>
-            <div className="crystal-glass rounded-2xl p-5 text-center crystal-hover">
-              <div className="text-3xl font-black text-white mb-1">{totalGoals}</div>
-              <div className="text-white/50 text-xs font-medium uppercase tracking-wider">Goals</div>
-            </div>
-            <div className="crystal-glass rounded-2xl p-5 text-center crystal-hover">
-              <div className="text-3xl font-black text-mwiri-gold mb-1">
-                {totalMatches > 0 ? (totalGoals / totalMatches).toFixed(1) : '0.0'}
-              </div>
-              <div className="text-white/50 text-xs font-medium uppercase tracking-wider">Avg/Match</div>
-            </div>
+          {/* League Summary */}
+          <div className="lg:col-span-12">
+            <LeagueSummary />
           </div>
 
           {/* League Table Card */}
