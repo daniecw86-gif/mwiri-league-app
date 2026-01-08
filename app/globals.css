@@ -37,8 +37,12 @@
   :root {
     --background: #0a1628;
     --foreground: #f8fafc;
-    --crystal-blur: 12px;
+    --crystal-blur: 20px;
+    --crystal-blur-heavy: 40px;
     --crystal-border-width: 0.5px;
+    --apple-glass-bg: rgba(255, 255, 255, 0.05);
+    --apple-glass-border: rgba(255, 255, 255, 0.18);
+    --apple-shadow-color: rgba(0, 0, 0, 0.45);
   }
 
   .dark {
@@ -164,47 +168,121 @@
 }
 
 /* ============================================
-   GLASSMORPHISM UTILITIES
+   GLASSMORPHISM UTILITIES - Apple Crystal Style
    ============================================ */
 @layer utilities {
 
-  /* Primary Crystal Glass Effect */
+  /* Primary Crystal Glass Effect - Apple Style */
   .crystal-glass {
-    background: rgba(10, 22, 40, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 0.5px solid rgba(255, 209, 0, 0.2);
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.02) 50%,
+        rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(var(--crystal-blur)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--crystal-blur)) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
     box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 0 0.5px rgba(255, 255, 255, 0.05) inset;
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      0 0 0 0.5px rgba(255, 255, 255, 0.1) inset,
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  /* Top highlight refraction effect */
+  .crystal-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 30%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.4) 70%,
+        transparent 100%);
+    border-radius: inherit;
+    pointer-events: none;
   }
 
   .crystal-glass-light {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
     box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      0 0 0 0.5px rgba(255, 255, 255, 0.1) inset;
+      0 8px 32px rgba(0, 0, 0, 0.25),
+      0 0 0 0.5px rgba(255, 255, 255, 0.15) inset,
+      inset 0 2px 4px rgba(255, 255, 255, 0.1);
   }
 
   .crystal-glass-gold {
-    background: rgba(255, 209, 0, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 0.5px solid rgba(255, 209, 0, 0.3);
+    background: linear-gradient(135deg,
+        rgba(255, 209, 0, 0.12) 0%,
+        rgba(255, 209, 0, 0.03) 50%,
+        rgba(255, 209, 0, 0.08) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 0.5px solid rgba(255, 209, 0, 0.35);
     box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.25),
-      0 0 0 0.5px rgba(255, 209, 0, 0.15) inset;
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 0 0.5px rgba(255, 209, 0, 0.2) inset,
+      inset 0 1px 0 rgba(255, 209, 0, 0.25);
   }
 
-  /* Navbar glass */
+  /* Premium frosted glass - heavier blur */
+  .crystal-glass-frosted {
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(var(--crystal-blur-heavy)) saturate(200%) brightness(1.02);
+    -webkit-backdrop-filter: blur(var(--crystal-blur-heavy)) saturate(200%) brightness(1.02);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  }
+
+  /* Navbar glass - Apple style */
   .crystal-nav {
-    background: rgba(0, 31, 63, 0.9);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 0.5px solid rgba(255, 209, 0, 0.15);
+    background: linear-gradient(180deg,
+        rgba(15, 23, 42, 0.85) 0%,
+        rgba(15, 23, 42, 0.95) 100%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Apple-style card with depth */
+  .apple-card {
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.02) 50%,
+        rgba(255, 255, 255, 0.04) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 20px;
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      inset 0 1px 1px rgba(255, 255, 255, 0.1),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.02);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .apple-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+      inset 0 1px 2px rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 }
 
