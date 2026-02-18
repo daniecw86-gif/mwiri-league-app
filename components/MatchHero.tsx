@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { teams } from '../data/teams';
 
 interface MatchHeroProps {
@@ -34,7 +35,7 @@ const MatchHero: React.FC<MatchHeroProps> = ({ match }) => {
                             style={{ borderColor: homeTeam?.primaryColor || 'transparent' }}
                         >
                             {homeTeam?.logo ? (
-                                <img src={homeTeam.logo} alt={match.homeTeamName} className="w-full h-full object-contain drop-shadow-lg" />
+                                <Image src={homeTeam.logo} alt={match.homeTeamName} width={128} height={128} className="w-full h-full object-contain drop-shadow-lg" />
                             ) : (
                                 <span className="text-4xl font-bold">{match.homeTeamName.charAt(0)}</span>
                             )}
@@ -77,7 +78,7 @@ const MatchHero: React.FC<MatchHeroProps> = ({ match }) => {
                             style={{ borderColor: awayTeam?.primaryColor || 'transparent' }}
                         >
                             {awayTeam?.logo ? (
-                                <img src={awayTeam.logo} alt={match.awayTeamName} className="w-full h-full object-contain drop-shadow-lg" />
+                                <Image src={awayTeam.logo} alt={match.awayTeamName} width={128} height={128} className="w-full h-full object-contain drop-shadow-lg" />
                             ) : (
                                 <span className="text-4xl font-bold">{match.awayTeamName.charAt(0)}</span>
                             )}

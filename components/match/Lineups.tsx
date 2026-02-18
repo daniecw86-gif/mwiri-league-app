@@ -8,22 +8,34 @@ interface LineupsProps {
 const Lineups: React.FC<LineupsProps> = ({ match }) => {
     const { lineups, homeTeamName, awayTeamName } = match;
 
-    const renderTeamLineup = (teamName: string, players: LineupPlayer[]) => (
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
-                <h3 className="font-bold text-gray-900">{teamName}</h3>
-                <span className="text-xs font-medium px-2 py-1 bg-gray-200 rounded text-gray-600">4-4-2</span>
+    const getPositionColor = (pos: string) => {
+        switch (pos) {
+            case 'GK': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
+            case 'DF': return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
+            case 'MF': return 'bg-green-500/20 text-green-400 border-green-500/30';
+            case 'FW': return 'bg-red-500/20 text-red-400 border-red-500/30';
+            default: return 'bg-white/10 text-white/60 border-white/20';
+        }
+    };
+
+    const renderTeamLineup = (teamName: string, players: LineupPlayer[], isHome: boolean) => (
+        <div className="crystal-glass rounded-2xl overflow-hidden">
+            <div className={`px-6 py-4 border-b border-white/10 flex justify-between items-center ${isHome ? 'gradient-blue' : 'gradient-gold'}`}>
+                <h3 className={`font-barlow font-bold ${isHome ? 'text-white' : 'text-mwiri-blue-deep'}`}>{teamName}</h3>
+                <span className={`text-xs font-bold px-3 py-1 rounded-full ${isHome ? 'bg-white/20 text-white' : 'bg-mwiri-blue-deep/20 text-mwiri-blue-deep'}`}>
+                    {players.length} Players
+                </span>
             </div>
-            <div className="divide-y divide-gray-100">
-                {players.map((player) => (
-                    <div key={player.number} className="px-6 py-3 flex items-center space-x-4 hover:bg-gray-50 transition-colors">
-                        <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full text-sm font-bold text-gray-600 border border-gray-200">
+            <div className="divide-y divide-white/5">
+                {players.map((player, index) => (
+                    <div key={player.number} className="px-5 py-3 flex items-center space-x-4 hover:bg-white/5 transition-colors group">
+                        <div className="w-9 h-9 flex items-center justify-center bg-white/10 rounded-xl text-sm font-black text-white border border-white/10 group-hover:border-mwiri-gold/30 transition-colors">
                             {player.number}
                         </div>
-                        <div className="flex-1">
-                            <p className="font-medium text-gray-900">{player.name}</p>
+                        <div className="flex-1 min-w-0">
+                            <p className="font-medium text-white text-sm truncate">{player.name}</p>
                         </div>
-                        <div className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded w-12 text-center">
+                        <div className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border ${getPositionColor(player.position)}`}>
                             {player.position}
                         </div>
                     </div>
@@ -33,9 +45,9 @@ const Lineups: React.FC<LineupsProps> = ({ match }) => {
     );
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {renderTeamLineup(homeTeamName, lineups.home)}
-            {renderTeamLineup(awayTeamName, lineups.away)}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {renderTeamLineup(homeTeamName, lineups.home, true)}
+            {renderTeamLineup(awayTeamName, lineups.away, false)}
         </div>
     );
 };

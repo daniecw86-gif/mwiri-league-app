@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface PlayerHeroProps {
@@ -36,7 +37,7 @@ const PlayerHero: React.FC<PlayerHeroProps> = ({ player, primaryColor = '#002845
                 <div className="w-full md:w-1/3 flex justify-center md:justify-start -mb-4 md:-mb-8 relative z-20">
                     <div className="w-64 h-64 md:w-80 md:h-80 relative">
                         {player.image ? (
-                            <img src={player.image} alt={player.name} className="w-full h-full object-contain drop-shadow-2xl" />
+                            <Image src={player.image} alt={player.name} width={320} height={320} className="w-full h-full object-contain drop-shadow-2xl" />
                         ) : (
                             <div className="w-full h-full flex items-end justify-center">
                                 <svg className="w-full h-full text-gray-400 opacity-50" fill="currentColor" viewBox="0 0 24 24">

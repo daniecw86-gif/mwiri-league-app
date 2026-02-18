@@ -3,17 +3,20 @@
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { matchDetails } from '../../../data/matchDetails';
 import MatchTabs from '../../../components/MatchTabs';
 import Overview from '../../../components/match/Overview';
-import Lineups from '../../../components/match/Lineups';
-import Stats from '../../../components/match/Stats';
-import HeadToHead from '../../../components/match/HeadToHead';
 import { Match } from '../../../types';
 
 import { useRef } from 'react';
 import { toPng } from 'html-to-image';
-import MatchFlier from '../../../components/MatchFlier';
+
+// Dynamic imports — only loaded when their tab is active or flier is generated
+const Lineups = dynamic(() => import('../../../components/match/Lineups'));
+const Stats = dynamic(() => import('../../../components/match/Stats'));
+const HeadToHead = dynamic(() => import('../../../components/match/HeadToHead'));
+const MatchFlier = dynamic(() => import('../../../components/MatchFlier'), { ssr: false });
 
 import Link from 'next/link';
 

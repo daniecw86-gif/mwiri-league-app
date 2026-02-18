@@ -780,3 +780,38 @@
     box-shadow: 0 12px 40px rgba(255, 209, 0, 0.1);
   }
 }
+
+/* Crystal Skeleton Shimmer */
+.crystal-skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.04) 75%);
+  background-size: 400% 100%;
+  animation: crystal-shimmer 1.8s ease-in-out infinite;
+  border-radius: 0.75rem;
+}
+
+@keyframes crystal-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Page Transition */
+.page-enter {
+  animation: pageEnter 0.4s ease-out forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

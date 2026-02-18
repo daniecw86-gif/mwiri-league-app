@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 import { teams } from '../data/teams';
 import { players } from '../data/players';
 import { useRouter } from 'next/navigation';
-import { ThemeToggle } from './ThemeToggle';
 import InstallAppButton from './InstallAppButton';
 
 const Navbar = () => {
@@ -177,7 +176,7 @@ const Navbar = () => {
                                                             className="w-full text-left px-4 py-2 hover:bg-white/10 flex items-center gap-3 transition-colors"
                                                         >
                                                             <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white text-xs font-bold overflow-hidden">
-                                                                {team.logo ? <img src={team.logo} alt={team.name} className="w-full h-full object-cover" /> : team.name.charAt(0)}
+                                                                {team.logo ? <Image src={team.logo} alt={team.name} width={32} height={32} className="w-full h-full object-cover" /> : team.name.charAt(0)}
                                                             </div>
                                                             <span className="font-medium text-white">{team.name}</span>
                                                         </button>
@@ -216,7 +215,7 @@ const Navbar = () => {
                                 <InstallAppButton />
 
                                 <div className="border-l border-white/20 pl-3">
-                                    <ThemeToggle />
+
                                 </div>
                             </div>
                         </div>
@@ -243,7 +242,6 @@ const Navbar = () => {
                     </Link>
 
                     <div className="flex items-center gap-2">
-                        <ThemeToggle />
                         <button
                             onClick={toggleMenu}
                             className="p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-colors"

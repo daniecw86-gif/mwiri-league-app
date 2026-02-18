@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface BeforeInstallPromptEvent extends Event {
     prompt: () => Promise<void>;
@@ -86,7 +87,7 @@ const InstallBanner: React.FC = () => {
                 {/* Icon & Text */}
                 <div className="flex items-center gap-4 flex-1">
                     <div className="w-12 h-12 bg-white rounded-xl p-2 flex-shrink-0 shadow-lg">
-                        <img src="/images/mwiri-logo.png" alt="Mwiri League" className="w-full h-full object-contain" />
+                        <Image src="/images/mwiri-logo.png" alt="Mwiri League" width={48} height={48} className="w-full h-full object-contain" />
                     </div>
                     <div className="flex-1 min-w-0">
                         <p className="font-bold text-sm sm:text-base">Install Mwiri League App</p>

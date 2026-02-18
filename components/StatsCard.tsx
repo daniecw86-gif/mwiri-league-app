@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface StatsCardProps {
@@ -30,9 +31,9 @@ const StatsCard: React.FC<StatsCardProps> = ({ title, player, statLabel, linkHre
                     {/* Player Image / Team Logo */}
                     <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center border-2 border-mwiri-gold overflow-hidden relative">
                         {player.image ? (
-                            <img src={player.image} alt={player.name} className="w-full h-full object-cover" />
+                            <Image src={player.image} alt={player.name} width={80} height={80} className="w-full h-full object-cover" />
                         ) : player.teamLogo ? (
-                            <img src={player.teamLogo} alt={player.team} className="w-full h-full object-contain p-2" />
+                            <Image src={player.teamLogo} alt={player.team} width={80} height={80} className="w-full h-full object-contain p-2" />
                         ) : (
                             <svg className="w-12 h-12 text-white/40" fill="currentColor" viewBox="0 0 24 24"><path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                         )}

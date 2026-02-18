@@ -8,6 +8,7 @@ import { ErrorBoundary } from "../components/ErrorBoundary";
 import InstallBanner from "../components/InstallBanner";
 import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
 import ScrollToTop from "../components/ScrollToTop";
+import PageTransition from "../components/PageTransition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,10 +35,7 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#005696" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a1628" },
-  ],
+  themeColor: "#0a1628",
   icons: {
     icon: [
       { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
@@ -68,7 +66,7 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          forcedTheme="dark"
           disableTransitionOnChange
         >
           {/* Animated Crystal Background */}
@@ -81,7 +79,7 @@ export default function RootLayout({
             <div className="relative z-10 flex flex-col min-h-screen">
               <Navbar />
               <main className="flex-grow pb-20 md:pb-0">
-                {children}
+                <PageTransition>{children}</PageTransition>
               </main>
               <Footer />
             </div>

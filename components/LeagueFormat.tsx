@@ -1,11 +1,12 @@
 import React from 'react';
+import Image from 'next/image';
 
 const LeagueFormat = () => {
     return (
         <div className="overflow-hidden">
             <div className="gradient-mwiri px-6 py-5 border-b border-white/10 rounded-t-xl">
                 <div className="flex items-center gap-4">
-                    <img src="/images/mwiri-logo.png" alt="Mwiri League" className="h-12 w-12 object-contain" />
+                    <Image src="/images/mwiri-logo.png" alt="Mwiri League" width={48} height={48} className="h-12 w-12 object-contain" />
                     <div>
                         <h2 className="font-barlow text-xl font-bold text-white">New Mwiri League Play Format</h2>
                         <p className="text-mwiri-gold font-medium text-sm">Season Six Technical Committee</p>

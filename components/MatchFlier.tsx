@@ -46,7 +46,7 @@ const MatchFlier = forwardRef<HTMLDivElement, MatchFlierProps>(({ match }, ref) 
                     <div className="flex flex-col items-center w-1/3">
                         <div className="w-64 h-64 bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl border-8 border-white/10 p-8">
                             {match.homeTeamLogo ? (
-                                <img src={match.homeTeamLogo} alt={match.homeTeamName} className="w-full h-full object-contain" />
+                                <Image src={match.homeTeamLogo} alt={match.homeTeamName} width={256} height={256} className="w-full h-full object-contain" />
                             ) : (
                                 <span className="text-9xl font-bold text-gray-300">{match.homeTeamName.charAt(0)}</span>
                             )}
@@ -67,7 +67,7 @@ const MatchFlier = forwardRef<HTMLDivElement, MatchFlierProps>(({ match }, ref) 
                     <div className="flex flex-col items-center w-1/3">
                         <div className="w-64 h-64 bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl border-8 border-white/10 p-8">
                             {match.awayTeamLogo ? (
-                                <img src={match.awayTeamLogo} alt={match.awayTeamName} className="w-full h-full object-contain" />
+                                <Image src={match.awayTeamLogo} alt={match.awayTeamName} width={256} height={256} className="w-full h-full object-contain" />
                             ) : (
                                 <span className="text-9xl font-bold text-gray-300">{match.awayTeamName.charAt(0)}</span>
                             )}
