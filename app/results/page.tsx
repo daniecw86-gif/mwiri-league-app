@@ -76,10 +76,11 @@ export default function Results() {
                 {/* Filters */}
                 <div className="mb-8 flex flex-col md:flex-row gap-4">
                     {/* Week Filter Tabs */}
-                    <div className="flex-1 crystal-glass rounded-xl p-2 overflow-x-auto scrollbar-crystal">
+                    <div className="flex-1 crystal-glass rounded-xl p-2 overflow-x-auto scrollbar-crystal" role="group" aria-label="Filter by week">
                         <div className="flex gap-2 min-w-max">
                             <button
                                 onClick={() => setSelectedWeek("all")}
+                                aria-pressed={selectedWeek === "all"}
                                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${selectedWeek === "all"
                                     ? "bg-mwiri-gold text-mwiri-blue-deep shadow-sm"
                                     : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
@@ -91,6 +92,7 @@ export default function Results() {
                                 <button
                                     key={week}
                                     onClick={() => setSelectedWeek(week)}
+                                    aria-pressed={selectedWeek === week}
                                     className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${selectedWeek === week
                                         ? "bg-mwiri-gold text-mwiri-blue-deep shadow-sm"
                                         : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
@@ -103,7 +105,9 @@ export default function Results() {
                     </div>
 
                     {/* Team Filter */}
+                    <label htmlFor="results-team-filter" className="sr-only">Filter by team</label>
                     <select
+                        id="results-team-filter"
                         value={selectedTeam}
                         onChange={(e) => setSelectedTeam(e.target.value)}
                         className="crystal-glass border border-mwiri-gold/20 rounded-xl px-4 py-3 font-bold text-sm text-white bg-transparent focus:outline-none focus:border-mwiri-gold focus:ring-2 focus:ring-mwiri-gold/20 transition-all"

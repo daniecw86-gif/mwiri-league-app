@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Team, LeagueTeamStats } from '../types';
 
 interface LeagueTableProps {
@@ -20,6 +21,7 @@ type FilterType = 'Overall' | 'Home' | 'Away';
 
 const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
   const [filter, setFilter] = useState<FilterType>('Overall');
+  const router = useRouter();
 
   const getTeamStats = (team: Team): LeagueTeamStats => {
     if (filter === 'Home' && team.home) return team.home;
@@ -99,7 +101,11 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ teams }) => {
                 <tr
                   key={team.id}
                   className="row-hover cursor-pointer bg-transparent hover:bg-white/5"
-                  onClick={() => window.location.href = `/clubs/${team.id}`}
+                  onClick={() => router.push(`/clubs/${team.id}`)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); router.push(`/clubs/${team.id}`); } }}
+                  tabIndex={0}
+                  role="link"
+                  aria-label={`View ${team.name} details`}
                 >
                   {/* Position with Badge */}
                   <td className="px-3 py-3 text-center">

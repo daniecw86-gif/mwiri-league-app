@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import StatsCard from '../../components/StatsCard';
 import LeaderboardTable from '../../components/LeaderboardTable';
 import RedCards from '../../components/RedCards';
@@ -94,9 +95,9 @@ const StatsPage = () => {
                             </tbody>
                         </table>
                         <div className="bg-white/5 px-6 py-3 border-t border-white/10 text-center">
-                            <button className="text-sm font-bold text-mwiri-gold hover:text-white transition-colors">
+                            <Link href="/table" className="text-sm font-bold text-mwiri-gold hover:text-white transition-colors">
                                 View Full Table
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

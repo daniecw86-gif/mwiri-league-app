@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,6 +17,32 @@ const Navbar = () => {
     const pathname = usePathname();
     const router = useRouter();
     const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const searchContainerRef = useRef<HTMLDivElement>(null);
+
+    // Close search dropdown on outside click
+    const handleClickOutside = useCallback((event: MouseEvent) => {
+        if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+            setSearchResults({ teams: [], players: [] });
+            setSearchQuery('');
+        }
+    }, []);
+
+    // Close search dropdown on Escape key
+    const handleKeyDown = useCallback((event: KeyboardEvent) => {
+        if (event.key === 'Escape') {
+            setSearchResults({ teams: [], players: [] });
+            setSearchQuery('');
+        }
+    }, []);
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [handleClickOutside, handleKeyDown]);
 
     // Debounced search effect
     useEffect(() => {
@@ -124,7 +150,7 @@ const Navbar = () => {
                             {/* Right Side Actions */}
                             <div className="flex items-center gap-3 relative">
                                 {/* Search Bar */}
-                                <div className="relative">
+                                <div className="relative" ref={searchContainerRef}>
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <svg className="h-4 w-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

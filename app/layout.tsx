@@ -7,6 +7,7 @@ import { ThemeProvider } from "../components/ThemeProvider";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import InstallBanner from "../components/InstallBanner";
 import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
+import ScrollToTop from "../components/ScrollToTop";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -86,6 +87,7 @@ export default function RootLayout({
             </div>
             <InstallBanner />
             <ServiceWorkerRegistration />
+            <ScrollToTop />
           </ErrorBoundary>
         </ThemeProvider>
       </body>
