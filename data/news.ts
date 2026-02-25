@@ -11,6 +11,16 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
     {
+        id: 7,
+        title: "Match Day 2: 5 Days to Go!",
+        summary: "The Mwiri League Season VI returns with thrilling action as Match Day 2 unfolds on Saturday 28th February at IUEA Sports Ground. The Dr. Milton Obote Group takes centre stage with 13 exciting fixtures across three time slots. Expect competitive encounters as teams showcase talent and determination in the race for top honours.",
+        category: "Announcement",
+        date: "Feb 25, 2026",
+        author: "League Admin",
+        imageUrl: "/news/matchday2_promo.jpg",
+        link: "/news/7"
+    },
+    {
         id: 1,
         title: "Match Day 1: Makaya'08 Crushes Shadow'09 4-0",
         summary: "In a stunning display of attacking football, Makaya'08 opened their campaign with a dominant 4-0 victory over Shadow'09. Kabayaga Shakira was the standout performer with a hat-trick, while the team looked sharp from the first whistle, controlling possession and creating numerous chances.",

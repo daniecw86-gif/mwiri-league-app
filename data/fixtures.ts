@@ -228,4 +228,109 @@ export const fixtures: FixtureGroup[] = [
             },
         ],
     },
+    {
+        id: 2,
+        date: "Saturday 28 February 2026",
+        matches: [
+            // --- FIXTURE ONE (10:00 AM) ---
+            // Dr. Milton Obote Group
+            {
+                id: 401,
+                homeTeam: "Kombora'03",
+                awayTeam: "Vuyos United'00",
+                time: "10:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 402,
+                homeTeam: "Makaya'08",
+                awayTeam: "Divers'13",
+                time: "10:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 403,
+                homeTeam: "Mpala'99",
+                awayTeam: "Shadow'09",
+                time: "10:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 404,
+                homeTeam: "Bluedollar'04",
+                awayTeam: "Solida'95",
+                time: "10:00",
+                venue: "IUEA Sports Ground",
+            },
+
+            // --- FIXTURE TWO (12:00 PM) ---
+            // Dr. Milton Obote Group
+            {
+                id: 501,
+                homeTeam: "Top Layer'97",
+                awayTeam: "Mpala'99",
+                time: "12:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 502,
+                homeTeam: "Divers'13",
+                awayTeam: "Vuyos United'00",
+                time: "12:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 503,
+                homeTeam: "Kombora'03",
+                awayTeam: "Bluedollar'04",
+                time: "12:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 504,
+                homeTeam: "Makaya'08",
+                awayTeam: "Solida'95",
+                time: "12:00",
+                venue: "IUEA Sports Ground",
+            },
+
+            // --- FIXTURE THREE (2:00 PM) ---
+            // Dr. Milton Obote Group
+            {
+                id: 601,
+                homeTeam: "Top Layer'97",
+                awayTeam: "Divers'13",
+                time: "14:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 602,
+                homeTeam: "Vuyos United'00",
+                awayTeam: "Shadow'09",
+                time: "14:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 603,
+                homeTeam: "Bluedollar'04",
+                awayTeam: "Makaya'08",
+                time: "14:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 604,
+                homeTeam: "Mpala'99",
+                awayTeam: "Kombora'03",
+                time: "14:00",
+                venue: "IUEA Sports Ground",
+            },
+            {
+                id: 605,
+                homeTeam: "Solida'95",
+                awayTeam: "Top Layer'97",
+                time: "14:00",
+                venue: "IUEA Sports Ground",
+            },
+        ],
+    },
 ];
