@@ -8,6 +8,18 @@ interface RealPlayerData {
     yellowCards?: number;
 }
 
+// Seeded PRNG (mulberry32) for deterministic player generation
+function createSeededRandom(seed: number) {
+    let state = seed;
+    return () => {
+        state |= 0;
+        state = (state + 0x6D2B79F5) | 0;
+        let t = Math.imul(state ^ (state >>> 15), 1 | state);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
 // Real players data from Match Day 1
 const realPlayers: RealPlayerData[] = [
     // Top Scorers
@@ -36,6 +48,7 @@ const firstNames = ["James", "John", "Robert", "Michael", "William", "David", "R
 const lastNames = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin"];
 
 const generatePlayers = (): Player[] => {
+    const random = createSeededRandom(42);
     const players: Player[] = [];
     let id = 1;
 
@@ -49,7 +62,7 @@ const generatePlayers = (): Player[] => {
                 name: realPlayer.name,
                 teamId: team.id,
                 teamName: team.name,
-                number: Math.floor(Math.random() * 99) + 1,
+                number: Math.floor(random() * 99) + 1,
                 position: "Forward", // Default to Forward for scorers, or generic
                 goals: realPlayer.goals || 0,
                 assists: 0,
@@ -61,11 +74,11 @@ const generatePlayers = (): Player[] => {
             });
         });
 
-        // 2. Fill the rest with random players to reach ~18 players
+        // 2. Fill the rest with generated players to reach ~18 players
         const playersNeeded = 18 - teamRealPlayers.length;
         for (let i = 0; i < playersNeeded; i++) {
-            const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-            const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            const firstName = firstNames[Math.floor(random() * firstNames.length)];
+            const lastName = lastNames[Math.floor(random() * lastNames.length)];
 
             // Assign positions roughly
             let position;
@@ -79,14 +92,14 @@ const generatePlayers = (): Player[] => {
                 name: `${firstName} ${lastName}`,
                 teamId: team.id,
                 teamName: team.name,
-                number: Math.floor(Math.random() * 99) + 1,
+                number: Math.floor(random() * 99) + 1,
                 position: position,
-                goals: 0, // Random players have 0 goals to let real scorers shine
-                assists: position !== "Goalkeeper" ? Math.floor(Math.random() * 3) : 0,
-                cleanSheets: position === "Goalkeeper" ? Math.floor(Math.random() * 2) : 0,
+                goals: 0,
+                assists: position !== "Goalkeeper" ? Math.floor(random() * 3) : 0,
+                cleanSheets: position === "Goalkeeper" ? Math.floor(random() * 2) : 0,
                 yellowCards: 0,
                 redCards: 0,
-                appearances: Math.floor(Math.random() * 2),
+                appearances: Math.floor(random() * 2),
                 image: null
             });
         }

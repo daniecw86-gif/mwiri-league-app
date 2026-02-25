@@ -12,13 +12,32 @@ import Link from 'next/link';
 
 import { Team, Player } from '../types';
 
-// Helper to get next upcoming fixture
+// Helper to parse fixture group date strings like "Saturday 22 November 2025"
+function parseFixtureDate(dateStr: string): Date | null {
+  try {
+    // Remove day name prefix (e.g., "Saturday ")
+    const cleaned = dateStr.replace(/^[A-Za-z]+\s+/, '');
+    const parsed = new Date(cleaned);
+    return isNaN(parsed.getTime()) ? null : parsed;
+  } catch {
+    return null;
+  }
+}
+
+// Helper to get next upcoming fixture (or most recent if all are past)
 function getNextFixture() {
+  const now = new Date();
+  // Try to find a fixture group in the future
   for (const group of fixtures) {
-    for (const match of group.matches) {
-      // In a real app, compare with current date
-      return match;
+    const groupDate = parseFixtureDate(group.date);
+    if (groupDate && groupDate >= now) {
+      return { match: group.matches[0], label: group.date, isUpcoming: true };
     }
+  }
+  // If all fixtures are past, show the first fixture from the last group
+  if (fixtures.length > 0) {
+    const lastGroup = fixtures[fixtures.length - 1];
+    return { match: lastGroup.matches[0], label: lastGroup.date, isUpcoming: false };
   }
   return null;
 }
@@ -70,64 +89,73 @@ export default function Home() {
           {/* Next Match Card - Large Featured */}
           <div className="lg:col-span-7 crystal-glass rounded-3xl p-6 md:p-8 crystal-float">
             <div className="flex items-center gap-2 mb-6">
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-mwiri-gold/20 text-mwiri-gold text-xs font-bold uppercase tracking-wider">
-                🔥 Next Match
+              <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${nextFixture?.isUpcoming
+                  ? 'bg-mwiri-gold/20 text-mwiri-gold'
+                  : 'bg-white/10 text-white/60'
+                }`}>
+                {nextFixture?.isUpcoming ? '🔥 Next Match' : '⏮ Last Played'}
               </span>
+              {nextFixture?.label && (
+                <span className="text-white/40 text-xs">{nextFixture.label}</span>
+              )}
             </div>
 
-            {nextFixture ? (
-              <div className="flex items-center justify-between gap-4">
-                {/* Home Team */}
-                <div className="flex-1 text-center">
-                  <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 relative bg-white/10 rounded-2xl p-2">
-                    {teamMap.get(nextFixture.homeTeam)?.logo ? (
-                      <Image
-                        src={teamMap.get(nextFixture.homeTeam)!.logo!}
-                        alt={nextFixture.homeTeam}
-                        fill
-                        className="object-contain p-2"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-3xl font-black text-white/50">
-                        {nextFixture.homeTeam.charAt(0)}
-                      </div>
-                    )}
+            {nextFixture?.match ? (() => {
+              const fixture = nextFixture.match;
+              return (
+                <div className="flex items-center justify-between gap-4">
+                  {/* Home Team */}
+                  <div className="flex-1 text-center">
+                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 relative bg-white/10 rounded-2xl p-2">
+                      {teamMap.get(fixture.homeTeam)?.logo ? (
+                        <Image
+                          src={teamMap.get(fixture.homeTeam)!.logo!}
+                          alt={fixture.homeTeam}
+                          fill
+                          className="object-contain p-2"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-3xl font-black text-white/50">
+                          {fixture.homeTeam.charAt(0)}
+                        </div>
+                      )}
+                    </div>
+                    <p className="font-barlow font-bold text-white text-lg md:text-xl truncate">
+                      {fixture.homeTeam}
+                    </p>
                   </div>
-                  <p className="font-barlow font-bold text-white text-lg md:text-xl truncate">
-                    {nextFixture.homeTeam}
-                  </p>
-                </div>
 
-                {/* VS Badge */}
-                <div className="flex flex-col items-center gap-2">
-                  <div className="vs-badge">VS</div>
-                  <span className="text-white/40 text-xs font-medium">
-                    {nextFixture.time || '16:00'}
-                  </span>
-                </div>
-
-                {/* Away Team */}
-                <div className="flex-1 text-center">
-                  <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 relative bg-white/10 rounded-2xl p-2">
-                    {teamMap.get(nextFixture.awayTeam)?.logo ? (
-                      <Image
-                        src={teamMap.get(nextFixture.awayTeam)!.logo!}
-                        alt={nextFixture.awayTeam}
-                        fill
-                        className="object-contain p-2"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-3xl font-black text-white/50">
-                        {nextFixture.awayTeam.charAt(0)}
-                      </div>
-                    )}
+                  {/* VS Badge */}
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="vs-badge">VS</div>
+                    <span className="text-white/40 text-xs font-medium">
+                      {fixture.time || '16:00'}
+                    </span>
                   </div>
-                  <p className="font-barlow font-bold text-white text-lg md:text-xl truncate">
-                    {nextFixture.awayTeam}
-                  </p>
+
+                  {/* Away Team */}
+                  <div className="flex-1 text-center">
+                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 relative bg-white/10 rounded-2xl p-2">
+                      {teamMap.get(fixture.awayTeam)?.logo ? (
+                        <Image
+                          src={teamMap.get(fixture.awayTeam)!.logo!}
+                          alt={fixture.awayTeam}
+                          fill
+                          className="object-contain p-2"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-3xl font-black text-white/50">
+                          {fixture.awayTeam.charAt(0)}
+                        </div>
+                      )}
+                    </div>
+                    <p className="font-barlow font-bold text-white text-lg md:text-xl truncate">
+                      {fixture.awayTeam}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ) : (
+              );
+            })() : (
               <p className="text-white/50 text-center">No upcoming fixtures</p>
             )}
 

@@ -24,25 +24,42 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  title: "Mwiri League",
-  description: "Official Mwiri League Application - Fixtures, Results, Standings & More",
-  manifest: "/manifest.json",
+  title: {
+    default: 'Mwiri League — Busoga College Mwiri Old Boys Football Tournament',
+    template: '%s | Mwiri League',
+  },
+  description: 'Official Mwiri League Application — Live fixtures, results, standings, player stats, news & more from the Busoga College Mwiri Old Boys Football Tournament.',
+  manifest: '/manifest.json',
+  metadataBase: new URL('https://mwiri-league-app.vercel.app'),
+  openGraph: {
+    title: 'Mwiri League — Old Boys Football Tournament',
+    description: 'Live fixtures, results, standings & player stats from the Busoga College Mwiri Old Boys Football Tournament.',
+    type: 'website',
+    siteName: 'Mwiri League',
+    locale: 'en_UG',
+    url: 'https://mwiri-league-app.vercel.app',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mwiri League — Old Boys Football Tournament',
+    description: 'Fixtures, results, standings & stats from the Mwiri League.',
+  },
   appleWebApp: {
     capable: true,
-    statusBarStyle: "black-translucent",
-    title: "Mwiri League",
+    statusBarStyle: 'black-translucent',
+    title: 'Mwiri League',
   },
   formatDetection: {
     telephone: false,
   },
-  themeColor: "#0a1628",
+  themeColor: '#0a1628',
   icons: {
     icon: [
-      { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icons/icon-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: "/icons/icon-152x152.png", sizes: "152x152", type: "image/png" },
+      { url: '/icons/icon-152x152.png', sizes: '152x152', type: 'image/png' },
     ],
   },
 };

@@ -1,9 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import StatsCard from '../../components/StatsCard';
 import LeaderboardTable from '../../components/LeaderboardTable';
 import RedCards from '../../components/RedCards';
 import { statsData } from '../../data/stats';
+
+export const metadata: Metadata = {
+    title: 'Stats Centre',
+    description: 'Player and club statistics for the Mwiri League — top scorers, assists, clean sheets, and more.',
+};
 
 const StatsPage = () => {
     return (

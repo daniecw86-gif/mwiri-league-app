@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import { teams } from "../../data/teams";
 import LeagueTable from "../../components/LeagueTable";
 import LeagueFormat from "../../components/LeagueFormat";
+
+export const metadata: Metadata = {
+    title: 'League Table',
+    description: 'Current standings for the Mwiri League Season 2025/26 — points, goal difference, and form for all teams.',
+};
 
 export default function TablePage() {
     return (

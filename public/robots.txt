@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mwiri-league-app.vercel.app/sitemap.xml

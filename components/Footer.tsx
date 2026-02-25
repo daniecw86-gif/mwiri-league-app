@@ -33,8 +33,8 @@ const Footer = () => {
                     <div>
                         <h3 className="font-barlow font-bold text-base mb-5 text-mwiri-gold">The Club</h3>
                         <ul className="space-y-3 text-sm">
-                            <li><a href="#" className="text-white/60 hover:text-mwiri-gold transition-colors">About Us</a></li>
-                            <li><a href="#" className="text-white/60 hover:text-mwiri-gold transition-colors">Contact</a></li>
+                            <li><Link href="/about" className="text-white/60 hover:text-mwiri-gold transition-colors">About Us</Link></li>
+                            <li><Link href="/contact" className="text-white/60 hover:text-mwiri-gold transition-colors">Contact</Link></li>
                             <li><Link href="/news" className="text-white/60 hover:text-mwiri-gold transition-colors">News</Link></li>
                             <li><Link href="/gallery" className="text-white/60 hover:text-mwiri-gold transition-colors">Gallery</Link></li>
                         </ul>
@@ -42,12 +42,12 @@ const Footer = () => {
 
                     {/* Links Column 4 */}
                     <div>
-                        <h3 className="font-barlow font-bold text-base mb-5 text-mwiri-gold">Legal</h3>
+                        <h3 className="font-barlow font-bold text-base mb-5 text-mwiri-gold">More</h3>
                         <ul className="space-y-3 text-sm">
-                            <li><a href="#" className="text-white/60 hover:text-mwiri-gold transition-colors">Terms & Conditions</a></li>
-                            <li><a href="#" className="text-white/60 hover:text-mwiri-gold transition-colors">Privacy Policy</a></li>
-                            <li><a href="#" className="text-white/60 hover:text-mwiri-gold transition-colors">Cookie Policy</a></li>
-                            <li><a href="#" className="text-white/60 hover:text-mwiri-gold transition-colors">Accessibility</a></li>
+                            <li><Link href="/fantasy" className="text-white/60 hover:text-mwiri-gold transition-colors">Fantasy Pick&apos;em</Link></li>
+                            <li><Link href="/knockout" className="text-white/60 hover:text-mwiri-gold transition-colors">Knockout Bracket</Link></li>
+                            <li><Link href="/predictions" className="text-white/60 hover:text-mwiri-gold transition-colors">Predictions</Link></li>
+                            <li><Link href="/compare" className="text-white/60 hover:text-mwiri-gold transition-colors">Compare Players</Link></li>
                         </ul>
                     </div>
                 </div>

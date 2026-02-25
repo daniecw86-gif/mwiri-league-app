@@ -1,7 +1,13 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import NewsHero from '../../components/NewsHero';
 import NewsGrid from '../../components/NewsGrid';
 import { newsItems } from '../../data/news';
+
+export const metadata: Metadata = {
+    title: 'News & Media',
+    description: 'Latest match reports, interviews, and updates from the Mwiri League.',
+};
 
 const NewsPage = () => {
     const featuredArticle = newsItems[0];
