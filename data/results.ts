@@ -153,4 +153,18 @@ export const results: FixtureGroup[] = [
             },
         ],
     },
+    {
+        id: 4,
+        date: "Match Day 2 - 28 Feb 2026",
+        matches: [
+            {
+                id: 402,
+                homeTeam: "Ruga-Ruga'88",
+                awayTeam: "Destroyers' FC10",
+                homeScore: 1,
+                awayScore: 0,
+                venue: "Pitch 2",
+            },
+        ],
+    },
 ];
