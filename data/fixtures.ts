@@ -232,212 +232,286 @@ export const fixtures: FixtureGroup[] = [
         id: 2,
         date: "Saturday 28 February 2026",
         matches: [
-            // --- FIXTURE ONE (10:00 AM) ---
-            // Dr. Milton Obote Group
+            // --- 10:30 AM ---
             {
                 id: 401,
-                homeTeam: "Kombora'03",
-                awayTeam: "Vuyos United'00",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
+                homeTeam: "Bootlickers'93",
+                awayTeam: "Wampa Fc",
+                time: "10:30",
+                venue: "Pitch 1",
             },
             {
                 id: 402,
-                homeTeam: "Makaya'08",
-                awayTeam: "Divers'13",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
+                homeTeam: "Ruga-Ruga'88",
+                awayTeam: "Destroyers' FC10",
+                time: "10:30",
+                venue: "Pitch 2",
             },
             {
                 id: 403,
-                homeTeam: "Mpala'99",
-                awayTeam: "Shadow'09",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 404,
-                homeTeam: "Bluedollar'04",
-                awayTeam: "Solida'95",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
-            },
-            // Sir. Wilberforce Nadiope Group
-            {
-                id: 411,
-                homeTeam: "Bootlickers'93",
-                awayTeam: "Wampa Fc",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 412,
-                homeTeam: "Ruga-Ruga'88",
-                awayTeam: "Destroyers' FC10",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 413,
-                homeTeam: "Muniga'02",
-                awayTeam: "Kanga fc '07",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 414,
-                homeTeam: "Suici'06",
-                awayTeam: "Lukambwe'05",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 415,
-                homeTeam: "Buliti'01",
-                awayTeam: "Winter'94",
-                time: "10:00",
-                venue: "IUEA Sports Ground",
+                homeTeam: "Kombora'03",
+                awayTeam: "Vuyos United'00",
+                time: "10:30",
+                venue: "Pitch 3",
             },
 
-            // --- FIXTURE TWO (12:00 PM) ---
-            // Dr. Milton Obote Group
+            // --- 11:00 AM ---
             {
-                id: 501,
-                homeTeam: "Top Layer'97",
-                awayTeam: "Mpala'99",
-                time: "12:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 502,
-                homeTeam: "Divers'13",
-                awayTeam: "Vuyos United'00",
-                time: "12:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 503,
-                homeTeam: "Kombora'03",
-                awayTeam: "Bluedollar'04",
-                time: "12:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 504,
+                id: 404,
                 homeTeam: "Makaya'08",
-                awayTeam: "Solida'95",
-                time: "12:00",
-                venue: "IUEA Sports Ground",
+                awayTeam: "Divers'13",
+                time: "11:00",
+                venue: "Pitch 1",
             },
-            // Sir. Wilberforce Nadiope Group
             {
-                id: 511,
+                id: 405,
+                homeTeam: "Mpala'99",
+                awayTeam: "Shadow'09",
+                time: "11:00",
+                venue: "Pitch 2",
+            },
+            {
+                id: 406,
+                homeTeam: "Muniga'02",
+                awayTeam: "Kanga fc '07",
+                time: "11:00",
+                venue: "Pitch 3",
+            },
+
+            // --- 11:30 AM ---
+            {
+                id: 407,
+                homeTeam: "Suici'06",
+                awayTeam: "Lukambwe'05",
+                time: "11:30",
+                venue: "Pitch 1",
+            },
+            {
+                id: 408,
+                homeTeam: "Buliti'01",
+                awayTeam: "Winter'94",
+                time: "11:30",
+                venue: "Pitch 2",
+            },
+            {
+                id: 409,
+                homeTeam: "Bluedollar'04",
+                awayTeam: "Solida'95",
+                time: "11:30",
+                venue: "Pitch 3",
+            },
+
+            // --- 12:00 PM ---
+            {
+                id: 410,
                 homeTeam: "Wampa Fc",
                 awayTeam: "Suici'06",
                 time: "12:00",
-                venue: "IUEA Sports Ground",
+                venue: "Pitch 1",
             },
             {
-                id: 512,
+                id: 411,
                 homeTeam: "Bootlickers'93",
                 awayTeam: "Ruga-Ruga'88",
                 time: "12:00",
-                venue: "IUEA Sports Ground",
+                venue: "Pitch 2",
             },
             {
-                id: 513,
-                homeTeam: "Destroyers' FC10",
-                awayTeam: "Buliti'01",
+                id: 412,
+                homeTeam: "Top Layer'97",
+                awayTeam: "Mpala'99",
                 time: "12:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 514,
-                homeTeam: "Kanga fc '07",
-                awayTeam: "Winter'94",
-                time: "12:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 515,
-                homeTeam: "Muniga'02",
-                awayTeam: "Lukambwe'05",
-                time: "12:00",
-                venue: "IUEA Sports Ground",
+                venue: "Pitch 3",
             },
 
-            // --- FIXTURE THREE (2:00 PM) ---
-            // Dr. Milton Obote Group
+            // --- 12:30 PM ---
             {
-                id: 601,
-                homeTeam: "Top Layer'97",
-                awayTeam: "Divers'13",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
+                id: 413,
+                homeTeam: "Divers'13",
+                awayTeam: "Vuyos United'00",
+                time: "12:30",
+                venue: "Pitch 1",
             },
             {
-                id: 602,
+                id: 414,
+                homeTeam: "Kombora'03",
+                awayTeam: "Bluedollar'04",
+                time: "12:30",
+                venue: "Pitch 2",
+            },
+            {
+                id: 415,
+                homeTeam: "Destroyers' FC10",
+                awayTeam: "Buliti'01",
+                time: "12:30",
+                venue: "Pitch 3",
+            },
+
+            // --- 1:00 PM ---
+            {
+                id: 416,
+                homeTeam: "Kanga fc '07",
+                awayTeam: "Winter'94",
+                time: "13:00",
+                venue: "Pitch 1",
+            },
+            {
+                id: 417,
+                homeTeam: "Muniga'02",
+                awayTeam: "Lukambwe'05",
+                time: "13:00",
+                venue: "Pitch 2",
+            },
+            {
+                id: 418,
+                homeTeam: "Makaya'08",
+                awayTeam: "Solida'95",
+                time: "13:00",
+                venue: "Pitch 3",
+            },
+
+            // --- LUNCH BREAK ---
+
+            // --- 2:30 PM ---
+            {
+                id: 419,
                 homeTeam: "Vuyos United'00",
                 awayTeam: "Shadow'09",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
+                time: "14:30",
+                venue: "Pitch 1",
             },
             {
-                id: 603,
+                id: 420,
                 homeTeam: "Bluedollar'04",
                 awayTeam: "Makaya'08",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
+                time: "14:30",
+                venue: "Pitch 2",
             },
             {
-                id: 604,
-                homeTeam: "Mpala'99",
-                awayTeam: "Kombora'03",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
-            },
-            {
-                id: 605,
-                homeTeam: "Solida'95",
-                awayTeam: "Top Layer'97",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
-            },
-            // Sir. Wilberforce Nadiope Group
-            {
-                id: 611,
+                id: 421,
                 homeTeam: "Lukambwe'05",
                 awayTeam: "Wampa Fc",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
+                time: "14:30",
+                venue: "Pitch 3",
             },
+
+            // --- 3:00 PM ---
             {
-                id: 612,
+                id: 422,
                 homeTeam: "Kanga fc '07",
                 awayTeam: "Destroyers' FC10",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
+                time: "15:00",
+                venue: "Pitch 1",
             },
             {
-                id: 613,
+                id: 423,
                 homeTeam: "Muniga'02",
                 awayTeam: "Buliti'01",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
+                time: "15:00",
+                venue: "Pitch 2",
             },
             {
-                id: 614,
+                id: 424,
+                homeTeam: "Mpala'99",
+                awayTeam: "Kombora'03",
+                time: "15:00",
+                venue: "Pitch 3",
+            },
+
+            // --- 3:30 PM ---
+            {
+                id: 425,
+                homeTeam: "Solida'95",
+                awayTeam: "Top Layer'97",
+                time: "15:30",
+                venue: "Pitch 1",
+            },
+            {
+                id: 426,
                 homeTeam: "Bootlickers'93",
                 awayTeam: "Suici'06",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
+                time: "15:30",
+                venue: "Pitch 2",
             },
             {
-                id: 615,
+                id: 427,
                 homeTeam: "Winter'94",
                 awayTeam: "Ruga-Ruga'88",
-                time: "14:00",
-                venue: "IUEA Sports Ground",
+                time: "15:30",
+                venue: "Pitch 3",
+            },
+
+            // --- Other Matches ---
+
+            // --- 4:00 PM ---
+            {
+                id: 428,
+                homeTeam: "Lukambwe'05",
+                awayTeam: "Kanga fc '07",
+                time: "16:00",
+                venue: "Pitch 1",
+            },
+            {
+                id: 429,
+                homeTeam: "Bootlickers'93",
+                awayTeam: "Buliti'01",
+                time: "16:00",
+                venue: "Pitch 2",
+            },
+            {
+                id: 430,
+                homeTeam: "Mpala'99",
+                awayTeam: "Divers'13",
+                time: "16:00",
+                venue: "Pitch 3",
+            },
+
+            // --- 4:30 PM ---
+            {
+                id: 431,
+                homeTeam: "Top Layer'97",
+                awayTeam: "Vuyos United'00",
+                time: "16:30",
+                venue: "Pitch 1",
+            },
+            {
+                id: 432,
+                homeTeam: "Kombora'03",
+                awayTeam: "Shadow'09",
+                time: "16:30",
+                venue: "Pitch 2",
+            },
+            {
+                id: 433,
+                homeTeam: "Ruga-Ruga'88",
+                awayTeam: "Kanga fc '07",
+                time: "16:30",
+                venue: "Pitch 3",
+            },
+
+            // --- 5:00 PM ---
+            {
+                id: 434,
+                homeTeam: "Mpala'99",
+                awayTeam: "Bluedollar'04",
+                time: "17:00",
+                venue: "Pitch 1",
+            },
+            {
+                id: 435,
+                homeTeam: "Suici'06",
+                awayTeam: "Kanga fc '07",
+                time: "17:00",
+                venue: "Pitch 2",
+            },
+
+            // --- FRIENDLY MATCH (5:00 PM) ---
+            {
+                id: 436,
+                homeTeam: "IUEA",
+                awayTeam: "Mwiri Select",
+                time: "17:00",
+                venue: "Pitch 3",
             },
         ],
     },
