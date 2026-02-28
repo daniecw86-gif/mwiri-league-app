@@ -86,7 +86,7 @@ export default function Results() {
                                     : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
                                     }`}
                             >
-                                All Weeks
+                                All Match Days
                             </button>
                             {weeks.map(week => (
                                 <button
@@ -98,7 +98,7 @@ export default function Results() {
                                         : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
                                         }`}
                                 >
-                                    Week {week}
+                                    Match Day {week}
                                 </button>
                             ))}
                         </div>
@@ -125,7 +125,7 @@ export default function Results() {
                         <div key={group.id}>
                             <div className="flex items-center gap-3 mb-4 flex-wrap">
                                 <div className="bg-mwiri-gold text-mwiri-blue-deep px-4 py-2 rounded-lg font-black text-sm flex items-center gap-2">
-                                    <span>✅</span> Week {group.id}
+                                    <span>✅</span> Match Day {group.id}
                                 </div>
                                 <h3 className="text-xl font-black text-white">{group.date}</h3>
                                 <div className="flex-1 h-px bg-white/10 hidden md:block"></div>

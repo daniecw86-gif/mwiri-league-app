@@ -41,7 +41,7 @@ export default function Fixtures() {
                         Fixtures
                     </h1>
                     <p className="text-lg text-white/60 max-w-2xl">
-                        View all upcoming matches across {totalWeeks} matchweeks
+                        View all upcoming matches across {totalWeeks} match days
                     </p>
                 </div>
             </div>
@@ -55,7 +55,7 @@ export default function Fixtures() {
                     </div>
                     <div className="crystal-glass rounded-2xl p-5 crystal-hover">
                         <div className="text-3xl font-black text-white mb-1">{totalWeeks}</div>
-                        <div className="text-white/50 text-sm font-medium">Matchweeks</div>
+                        <div className="text-white/50 text-sm font-medium">Match Days</div>
                     </div>
                     <div className="crystal-glass rounded-2xl p-5 crystal-hover">
                         <div className="text-3xl font-black text-mwiri-gold mb-1">{teams.length}</div>
@@ -76,7 +76,7 @@ export default function Fixtures() {
                                     : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
                                     }`}
                             >
-                                All Weeks
+                                All Match Days
                             </button>
                             {weeks.map(week => (
                                 <button
@@ -88,7 +88,7 @@ export default function Fixtures() {
                                         : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
                                         }`}
                                 >
-                                    Week {week}
+                                    Match Day {week}
                                 </button>
                             ))}
                         </div>
@@ -115,7 +115,7 @@ export default function Fixtures() {
                         <div key={group.id}>
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="bg-mwiri-gold text-mwiri-blue-deep px-4 py-2 rounded-lg font-black text-sm">
-                                    Week {group.id}
+                                    Match Day {group.id}
                                 </div>
                                 <h3 className="text-xl font-black text-white">{group.date}</h3>
                                 <div className="flex-1 h-px bg-white/10"></div>

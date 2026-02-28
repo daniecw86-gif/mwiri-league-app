@@ -26,7 +26,7 @@ const Hero = () => {
                 <div className="md:w-2/3">
                     <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-mwiri-yellow font-bold text-xs mb-6 uppercase tracking-wider shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-mwiri-yellow animate-pulse"></span>
-                        Featured Matchweek
+                        Featured Match Day
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-none mb-6 text-white drop-shadow-sm">
                         The Mwiri League <br />
