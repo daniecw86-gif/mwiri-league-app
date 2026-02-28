@@ -189,6 +189,14 @@ export const results: FixtureGroup[] = [
                 awayScore: 1,
                 venue: "Pitch 3",
             },
+            {
+                id: 407,
+                homeTeam: "Suici'06",
+                awayTeam: "Lukambwe'05",
+                homeScore: 0,
+                awayScore: 1,
+                venue: "Pitch 1",
+            },
         ],
     },
 ];
